@@ -4,9 +4,19 @@
 ### _Contents_
 #### Data
 
-- 'countryDistribution' field: each country in which the species is extant or reintroduced into its native distribution is listed and separated by pipes (|)
+- MDD_versions: CSV formatted versions of the v1.0 to v1.8 MDD taxonomy
+- Diff_files: Tracked differences between adjacent versions of the MDD, from v1.31 to v1.8
+- Metadata_files: Versions of the field definitions for each versions of the MDD, from v1.2 to v1.8
 
-- Parsing of that 'countryDistribution' field into a species-by-country matrix, in which 0=absence, 1=presence, 2=potential presence, using the script 'country_matrix.R' and creating the files 'country_matrix_v1.8.txt' and 'country_totals_v1.8.txt'
+#### Scripts
+
+- country_matrix.R: script for parsing the 'countryDistribution' field of the MDD v1.8 database into a species-by-country matrix.
+
+#### Outputs
+
+- countryDistribution: Parsing of the 'countryDistribution' field in the MDD v1.8 database into a species-by-country matrix; each country in which the species is extant or reintroduced into its native distribution is listed and separated by pipes (|); 0=absence, 1=presence, 2=potential presence.  The script 'country_matrix.R' is used to create the files 'country_matrix_v1.8.txt' and 'country_totals_v1.8.txt'
+
+#### Figures
 
 
 
