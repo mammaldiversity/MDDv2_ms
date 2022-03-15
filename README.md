@@ -1,8 +1,8 @@
 # MDDv2_ms
 ## Codebase for J Mammalogy 2022 ms documenting changes to the Mammal Diversity Database from v1.0 to v2.0
 
-Live site: https://mammaldiversity.org/
-Versioning: https://doi.org/10.5281/zenodo.5945626
+- Live site: https://mammaldiversity.org/
+- Versioning: https://doi.org/10.5281/zenodo.5945626
 
 ### _Contents_
 #### Data
