@@ -10,7 +10,7 @@ setwd("G:\\My Drive\\Projects\\MDD_v2.0_manuscript\\final_mddv2_stats_figures")
 
 # Install and load packages for all sections
 
-#install.packages(c('readxl','readr','dplyr','tidyr','stringr','purrr','gt','webshot2','rnaturalearth','sf','ggplot2','grid','scales','usmap'))
+#install.packages(c('readxl','readr','dplyr','tidyr','stringr','purrr','gt','webshot2','rnaturalearth','sf','ggplot2','zoo','grid','scales','usmap'))
 library(readxl)
 library(readr)
 library(dplyr)
@@ -22,6 +22,7 @@ library(webshot2)
 library(rnaturalearth)
 library(sf)
 library(ggplot2)
+library(zoo)
 library(grid)
 library(scales)
 library(usmap)
@@ -30,13 +31,17 @@ library(usmap)
 species_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\MDD_v2.0_6759species.csv")
 synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
 geographic_metadata <- read_excel("base_files\\mdd_geographic_terms_metadata.xlsx")
-museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
+
+#NOT FOR THIS PUB
+#museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
 
 # Saving all base files as CSV files to be included in the supplemental material
 write.csv(species_df, "supplementary_files\\mdd_v2_species_sheet.csv", row.names = FALSE)
 write.csv(synonyms_df, "supplementary_files\\mdd_v2_synonym_sheet.csv", row.names = FALSE)
 write.csv(geographic_metadata, "supplementary_files\\mdd_v2_geography_list_sheet.csv", row.names = FALSE)
-write.csv(museums_metadata, "supplementary_files\\mdd_v2_museum_list_sheet.csv", row.names = FALSE)
+
+#NOT FOR THIS PUB
+#write.csv(museums_metadata, "supplementary_files\\mdd_v2_museum_list_sheet.csv", row.names = FALSE)
 
 
 ######taxonomic_summary_df Supplement Table######
@@ -601,141 +606,6 @@ print(nomenclature_summary_df)
 # Saving the nomenclature summary as a CSV file
 write.csv(nomenclature_summary_df, "supplementary_files\\nomenclature_data_summary.csv", row.names = FALSE)
 
-
-######type_specimen_df Supplement Table######
-
-# Summarizing the data associated with type specimens on the MDD for a supplemental table
-
-# Load packages
-#library(readxl)
-#library(readr)
-#library(dplyr)
-#library(tidyr)
-#library(stringr)
-#library(purrr)
-
-# Load the synonym and museum metadata sheets from excel files
-#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
-#museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
-
-# Remove nomen_novum to avoid repeated types for multiple names
-filtered_synonyms <- synonyms_df %>%
-  filter(MDD_nomenclature_status != "nomen_novum")
-
-# Extract known institution labels from the collection dataset
-known_institution_labels <- unique(museums_metadata$label)
-
-# Define a function to extract museum labels correctly and generalize "Name collection" cases
-extract_institution_codes <- function(holotype) {
-  # Check if the holotype is missing or NA
-  if (is.na(holotype) || holotype == "") {
-    return(NA_character_)  # If the type is NA or empty, return NA
-  }
-  
-  # Split the string by commas first to handle multiple specimens in one field
-  parts <- str_split(holotype, ",\\s*")[[1]]
-  
-  # Extract the museum label from each part
-  codes <- lapply(parts, function(part) {
-    # Extract up to the first separator (space, colon, period, hyphen, slash)
-    label <- str_extract(part, "^[^\\s:.,/-]+")
-    
-    # Generalize to handle cases with text string "Name collection" by checking if it's a single word not in known institution labels
-    if (!label %in% known_institution_labels && !str_detect(label, "\\d") && nchar(label) > 1) {
-      return(paste(label, "collection"))
-    } else {
-      return(label)
-    }
-  })
-  
-  # Return unique and non-empty codes
-  unique_codes <- unique(unlist(codes[!is.na(codes) & codes != ""]))
-  
-  # Return NA if no valid codes were found
-  if (length(unique_codes) == 0) {
-    return(NA_character_)
-  }
-  
-  return(unique_codes)
-}
-
-# Apply the function to extract institution codes
-filtered_synonyms <- filtered_synonyms %>%
-  rowwise() %>%
-  mutate(institution_codes = list(extract_institution_codes(MDD_holotype))) %>%
-  ungroup()
-
-# Flatten the list of institution codes into separate rows
-synonyms_expanded <- filtered_synonyms %>%
-  unnest(institution_codes) %>%
-  filter(!is.na(institution_codes) & institution_codes != "") %>%
-  distinct()
-
-# Summarize the data by institution, counting every appearance
-summary_df <- synonyms_expanded %>%
-  group_by(institution_codes) %>%
-  summarise(
-    total_type_specimens = n(),
-    holotype_count = sum(MDD_type_kind == "holotype", na.rm = TRUE),
-    syntype_count = sum(MDD_type_kind == "syntypes", na.rm = TRUE),
-    lectotype_count = sum(MDD_type_kind == "lectotype", na.rm = TRUE),
-    neotype_count = sum(MDD_type_kind == "neotype", na.rm = TRUE),
-    nonexistent_count = sum(MDD_type_kind == "nonexistent", na.rm = TRUE)
-  )
-
-# Merge with the museums metadata to include lat/lon
-type_specimen_df <- museums_metadata %>%
-  select(label, name, country, state, city, museum_city_latitude, museum_city_longitude) %>%
-  left_join(summary_df, by = c("label" = "institution_codes")) %>%
-  rename(
-    museum_label = label,
-    museum_name = name,
-    museum_country = country,
-    museum_subregion = state,
-    museum_city = city
-  )
-
-# Identify and summarize unmatched labels (used to check for issues)
-unmatched_labels <- synonyms_expanded %>%
-  filter(!institution_codes %in% museums_metadata$label)
-
-unmatched_count <- unmatched_labels %>%
-  summarise(total_type_specimens = n())
-
-# Calculate Total Types (excluding NAs and empty values)
-total_types <- type_specimen_df %>%
-  filter(!is.na(museum_label) & museum_label != "") %>%
-  summarise(
-    museum_name = "Total Types",
-    total_type_specimens = sum(total_type_specimens, na.rm = TRUE),
-    holotype_count = sum(holotype_count, na.rm = TRUE),
-    syntype_count = sum(syntype_count, na.rm = TRUE),
-    lectotype_count = sum(lectotype_count, na.rm = TRUE),
-    neotype_count = sum(neotype_count, na.rm = TRUE),
-    nonexistent_count = sum(nonexistent_count, na.rm = TRUE)
-  )
-
-# Combine the final summary with Total Unmatched and Total Types rows
-type_specimen_df <- bind_rows(
-  type_specimen_df,
-  data.frame(museum_name = "Total Unmatched", 
-             total_type_specimens = unmatched_count$total_type_specimens,
-             holotype_count = NA, syntype_count = NA,
-             lectotype_count = NA, neotype_count = NA,
-             nonexistent_count = NA),
-  total_types
-)
-
-# View the unmatched labels summary (was used to check for issues)
-print(unmatched_labels)
-
-# View the final type specimen summary
-print(type_specimen_df)
-
-# Saving the nomenclature summary as a CSV file
-write.csv(type_specimen_df, "supplementary_files\\type_specimen_data_summary.csv", row.names = FALSE)
-
-
 ######Table 1 MDD Comparison ######
 
 # Summarizing the differences between the various MDD versions
@@ -770,7 +640,7 @@ mdd_versions <- list(
 
 # Define a list of diff files for each MDD version that has a diff file
 diff_files <- list(
-  "MDD1.3" = read_csv("https://raw.githubusercontent.com/mammaldiversity/MDDv2_ms/main/data/Diff_files/Diff_v1.2-v1.3.1.csv?token=GHSAT0AAAAAACWTVBP3PDJCHIBD4N2VMUBSZWPKA2Q", locale = locale(encoding = "UTF-8")),
+  "MDD1.3" = read_csv("base_files/Diff_v1.2-v1.3.1.csv"),
   "MDD1.4" = read_csv("https://zenodo.org/records/4679816/files/Diff_v1.31-v1.4.csv?download=1", locale = locale(encoding = "UTF-8")),
   "MDD1.5" = read_csv("https://zenodo.org/records/4926590/files/Diff_v1.4-v1.5.csv?download=1", locale = locale(encoding = "UTF-8")),
   "MDD1.6" = read_csv("https://zenodo.org/records/5175993/files/Diff_v1.5-v1.6.csv?download=1", locale = locale(encoding = "UTF-8")),
@@ -1015,7 +885,7 @@ gtsave(mdd_version_comparison_table, "tables\\mdd_version_comparison_table.html"
 #Maybe Troussart?
 #Maybe Walkers Mammals of the World?
 
-# Load required libraries
+# Load packages
 #library(dplyr)
 #library(gt)
 
@@ -1112,8 +982,389 @@ mdd_compendia_table
 gtsave(mdd_compendia_table, "tables\\mdd_compendia_table.html")
 
 
-######Taxonomic Change Graphs######
+######Taxonomic Change Graph######
 
+# Creating a histogram of descriptions of available names and species since 1758
+# And overlaying trendlines of taxonomic trends with 10 year running means
+
+# Load packages
+#library(dplyr)
+#library(ggplot2)
+#library(zoo)
+
+# Load the synonym data from excel files
+#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
+
+# Filter the dataframe for relevant nomenclature statuses and years after 1757
+synonym_since_1758_data <- synonyms_df %>%
+  filter(MDD_year > 1757, 
+         MDD_nomenclature_status %in% c("available", "as_emended", "preoccupied", "nomen_novum", "fully_suppressed", "partially_suppressed"))
+
+# Create a subset of the filtered data where validity is exactly "species"
+species_year_data <- synonym_since_1758_data %>%
+  filter(MDD_validity == "species")
+
+# Create a subset for 'Lumps': originally species but now synonyms
+lumps_data <- synonym_since_1758_data %>%
+  filter(MDD_original_rank == "species", MDD_validity == "synonym")
+
+# Create a subset for 'Splits': originally synonym/subspecies/form/variety but now species
+splits_data <- synonym_since_1758_data %>%
+  filter(MDD_original_rank %in% c("synonym", "subspecies", "form", "variety"), MDD_validity == "species")
+
+# Calculate total names and species names per year
+names_per_year <- synonym_since_1758_data %>%
+  group_by(MDD_year) %>%
+  summarise(total_names = n())
+
+species_per_year <- species_year_data %>%
+  group_by(MDD_year) %>%
+  summarise(species_count = n())
+
+# Calculate counts of lumps and splits per year
+lumps_per_year <- lumps_data %>%
+  group_by(MDD_year) %>%
+  summarise(lumps_count = n())
+
+splits_per_year <- splits_data %>%
+  group_by(MDD_year) %>%
+  summarise(splits_count = n())
+
+# Calculate the percentage of species, lumps, and splits per year and join with names_per_year
+percent_species_per_year <- names_per_year %>%
+  left_join(species_per_year, by = "MDD_year") %>%
+  left_join(lumps_per_year, by = "MDD_year") %>%
+  left_join(splits_per_year, by = "MDD_year") %>%
+  mutate(
+    species_count = coalesce(species_count, 0),  # Fill missing species counts with 0
+    lumps_count = coalesce(lumps_count, 0),      # Fill missing lumps counts with 0
+    splits_count = coalesce(splits_count, 0),    # Fill missing splits counts with 0
+    percent_species = (species_count / total_names) * 100,
+    percent_lumps = (lumps_count / total_names) * 100,
+    percent_splits = (splits_count / total_names) * 100
+  )
+
+# Smooth the percent_species, percent_lumps, and percent_splits using a 10-year rolling mean
+percent_species_per_year <- percent_species_per_year %>%
+  arrange(MDD_year) %>%
+  mutate(
+    smoothed_percent_species = rollmean(percent_species, 10, fill = NA, align = "right"),
+    smoothed_percent_lumps = rollmean(percent_lumps, 10, fill = NA, align = "right"),
+    smoothed_percent_splits = rollmean(percent_splits, 10, fill = NA, align = "right")  # Fix here
+  )
+
+# Create the histogram with outlines and overlay the smoothed line graph with combined legends
+names_over_time_plot <- ggplot() +
+  geom_histogram(data = synonym_since_1758_data, aes(x = MDD_year, fill = "Available Names"), color = "black", binwidth = 1, alpha = 0.6) +
+  geom_histogram(data = species_year_data, aes(x = MDD_year, fill = "Currently Valid Species"), color = "black", binwidth = 1, alpha = 0.6) +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_species * max(names_per_year$total_names) / 100, color = "Described as Species"), size = 1) +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_lumps * max(names_per_year$total_names) / 100, color = "Species Lumped Since Description"), size = 1) +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_splits * max(names_per_year$total_names) / 100, color = "Species Split Since Description"), size = 1) +
+  scale_y_continuous(
+    name = "Total Names Described",
+    breaks = seq(0, max(names_per_year$total_names), by = 100),  # Set breaks at every 100
+    sec.axis = sec_axis(~ . / max(names_per_year$total_names) * 100, name = "Percent of Names")
+  ) +
+  labs(x = "Year") +
+  scale_fill_manual(values = c("Available Names" = "gray70", "Currently Valid Species" = "gray30")) +
+  scale_color_manual(values = c("Described as Species" = "blue3",
+                                "Species Lumped Since Description" = "orange2",
+                                "Species Split Since Description" = "red3")) + 
+  theme(
+    panel.background = element_rect(fill = "white", color = "gray90"),
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.grid.major = element_line(color = "gray90"),
+    panel.grid.minor = element_line(color = "gray90"),
+    legend.position = c(0.05, 0.95),
+    legend.justification = c("left", "top"),
+    legend.box = "horizontal",
+    legend.spacing.x = unit(1, "cm"),
+    legend.box.just = "left",
+    legend.spacing.y = unit(0.2, "cm"),
+    legend.title = element_blank(),  # Remove legend titles
+    legend.background = element_rect(fill = alpha("white", 0.3), color = NA), 
+    legend.box.background = element_rect(fill = alpha("white", 0.3), color = NA)
+  ) +
+  
+  # Custom guides for legends
+  guides(
+    fill = guide_legend(direction = "vertical", label.position = "right", keywidth = unit(1, "cm")),
+    color = guide_legend(direction = "vertical", label.position = "right", keywidth = unit(1, "cm"))
+  )
+
+# Print Names over Time Graph
+names_over_time_plot
+
+# Save the Names over Time Graph as a JPEG file
+ggsave("graphs\\names_over_time_graph.jpeg", 
+       plot = names_over_time_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 7, 
+       units = "in", 
+       dpi = 900)
+
+######Species by Major Region Graph######
+
+# Making a graph of species and available names per continent and biorealm
+# Need to have the geography_summary_df loaded 
+# A summary table is also made near the end of this section (Table 3)
+
+# Load packages
+#library(ggplot2)
+#library(dplyr)
+
+# Separate region_category by '|' and create a long format dataframe for easier parsing
+geography_summary_long <- geography_summary_df %>%
+  separate_rows(region_category, sep = "\\|") %>%
+  mutate(split_species_since_MSW3 = new_since_MSW3 - new_descriptions_since_MSW3)  # Correct calculation for split species
+
+# Summarize for Biogeographic Realms
+biogeographic_realm_summary <- geography_summary_long %>%
+  filter(region_category == "Biogeographic Realm") %>%
+  group_by(region_name) %>%
+  summarise(
+    species_count = sum(species_count, na.rm = TRUE),
+    available_names = sum(available_names, na.rm = TRUE),
+    new_descriptions = sum(new_descriptions_since_MSW3, na.rm = TRUE),
+    split_species = sum(split_species_since_MSW3, na.rm = TRUE)
+  )
+
+# Summarize for Continents
+continent_summary <- geography_summary_long %>%
+  filter(region_category == "Continent") %>%
+  group_by(region_name) %>%
+  summarise(
+    species_count = sum(species_count, na.rm = TRUE),
+    available_names = sum(available_names, na.rm = TRUE),
+    new_descriptions = sum(new_descriptions_since_MSW3, na.rm = TRUE),
+    split_species = sum(split_species_since_MSW3, na.rm = TRUE)
+  )
+
+# Land area for biogeographic realms (in million km^2), based on data sourced from Wikipedia (there sourced from WWF), except Antarctic, which I used the area of Antarctica for
+biogeographic_realm_areas <- c(
+  "Palearctic" = 54.1,
+  "Nearctic" = 22.9,
+  "Afrotropic" = 22.1,
+  "Neotropic" = 19.0,
+  "Australasia" = 7.6,
+  "Indomalaya" = 7.5,
+  "Oceania (Biorealm)" = 1.0,
+  "Antarctic" = 14.2
+)
+
+# Land area for continents (in million km^2), based on data sourced from Wikipedia (sourced themselves from Encylcopedia Britanica)
+continent_areas <- c(
+  "Asia" = 44.6,
+  "Africa" = 30.4,
+  "North America" = 24.2,
+  "South America" = 17.8,
+  "Antarctica" = 14.2,
+  "Europe" = 10.0,
+  "Oceania (Continent)" = 8.5
+)
+
+# Add species density to the biogeographic realm summary
+biogeographic_realm_summary <- biogeographic_realm_summary %>%
+  mutate(area = biogeographic_realm_areas[region_name],  # Match area for each region
+         species_density = species_count / area)  # Calculate species density
+
+# Add species density to the continent summary
+continent_summary <- continent_summary %>%
+  mutate(area = continent_areas[region_name],  # Match area for each continent
+         species_density = species_count / area)  # Calculate species density
+
+# Compute max species_density and species_count values for scaling
+max_species_count <- max(biogeographic_realm_summary$species_count)
+
+# Adjust the scaling so that species density aligns with species count, and ensure the desired axis limits (0-150)
+scaling_factor <- max_species_count / 150
+
+# Plot for Species Count by Biogeographic Realm
+species_biorealm_plot <- ggplot(biogeographic_realm_summary, aes(x = reorder(region_name, -species_count))) +
+  geom_bar(aes(y = species_count, fill = "Total Species"), stat = "identity", color = "black", width = 0.7, position = "stack") +
+  geom_bar(aes(y = split_species + new_descriptions, fill = "Split Species"), stat = "identity", color = "black", width = 0.7, position = "stack") +
+  geom_bar(aes(y = new_descriptions, fill = "New Species Descriptions"), stat = "identity", color = "black", width = 0.7, position = "stack") +
+  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 3.5) +
+  geom_point(aes(y = species_density * scaling_factor), color = "red", size = 3) +
+  scale_y_continuous(
+    name = "Species Count",
+    sec.axis = sec_axis(~ . / scaling_factor, name = "Species Density (per million km^2)", 
+                        breaks = seq(0, 150, by = 30))
+  ) +
+  labs(x = "Terrestrial Biogeographic Realm") +
+  scale_fill_manual(values = c("Total Species" = "lightgray", 
+                               "Split Species" = "darkgray", 
+                               "New Species Descriptions" = "black"),
+                    breaks = c("Total Species", "Split Species", "New Species Descriptions")) +
+  guides(fill = guide_legend(direction = "vertical")) +  # Align legend vertically
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        plot.title = element_blank(),
+        legend.position = c(1, 1),
+        legend.justification = c(1, 1),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14),
+        legend.key.size = unit(2, "lines"))
+
+# Compute max species_density and species_count values for scaling
+max_species_count_continent <- max(continent_summary$species_count)
+
+# Adjust the scaling so that species density aligns with species count, and ensure the desired axis limits (0-150)
+scaling_factor_continent <- max_species_count_continent / 150
+
+# Plot for Species Count by Continent with Fixed Secondary Axis
+species_continent_plot <- ggplot(continent_summary, aes(x = reorder(region_name, -species_count))) +
+  geom_bar(aes(y = species_count, fill = "Total Species"), stat = "identity", color = "black", width = 0.7) +
+  geom_bar(aes(y = split_species + new_descriptions, fill = "Split Species"), stat = "identity", color = "black", width = 0.7) +
+  geom_bar(aes(y = new_descriptions, fill = "New Species Descriptions"), stat = "identity", color = "black", width = 0.7) +
+  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 3.5) +
+  geom_point(aes(y = species_density * scaling_factor_continent), color = "red", size = 3) +
+  scale_y_continuous(
+    name = "Species Count",
+    sec.axis = sec_axis(~ . / scaling_factor_continent, name = "Species Density (per million km^2)", 
+                        breaks = seq(0, 150, by = 30))
+  ) +
+  labs(x = "Continent") +
+  scale_fill_manual(values = c("Total Species" = "lightgray", 
+                               "Split Species" = "darkgray", 
+                               "New Species Descriptions" = "black"),
+                    breaks = c("Total Species", "Split Species", "New Species Descriptions")) +
+  guides(fill = guide_legend(direction = "vertical")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        plot.title = element_blank(),
+        legend.position = c(1, 1),
+        legend.justification = c(1, 1),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14),
+        legend.key.size = unit(2, "lines"))
+
+# Plot for Available Names by Biogeographic Realm
+name_biorealm_plot <- ggplot(biogeographic_realm_summary, aes(x = reorder(region_name, -available_names), y = available_names)) +
+  geom_bar(stat = "identity", fill = "gray70", color = "black", width = 0.7) +  
+  geom_text(aes(label = available_names), vjust = -0.5, size = 3.5) +  
+  labs(x = "Terrestrial Biogeographic Realm", y = "Available Names") +  
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), plot.title = element_blank())
+
+# Plot for Available Names by Continent
+name_continent_plot <- ggplot(continent_summary, aes(x = reorder(region_name, -available_names), y = available_names)) +
+  geom_bar(stat = "identity", fill = "gray70", color = "black", width = 0.7) +  
+  geom_text(aes(label = available_names), vjust = -0.5, size = 3.5) +  
+  labs(x = "Continent", y = "Available Names") +  
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), plot.title = element_blank())
+
+# Load the graphs
+species_biorealm_plot
+species_continent_plot
+name_biorealm_plot
+name_continent_plot
+
+# Save the graphs as JPEG files
+ggsave("graphs/species_biorealm_plot.jpeg", 
+       plot = species_biorealm_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 7, 
+       units = "in", 
+       dpi = 900)
+
+ggsave("graphs/species_continent_plot.jpeg", 
+       plot = species_continent_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 7, 
+       units = "in", 
+       dpi = 900)
+
+ggsave("graphs/name_biorealm_plot.jpeg", 
+       plot = name_biorealm_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 7, 
+       units = "in", 
+       dpi = 900)
+
+ggsave("graphs/name_continent_plot.jpeg", 
+       plot = name_continent_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 7, 
+       units = "in", 
+       dpi = 900)
+
+# Creating a table to summarize the data presented in the above graphs
+
+library(dplyr)
+library(gt)
+
+# Combine Continent and Biogeographic Realm summaries into one table
+combined_summary_table <- bind_rows(
+  continent_summary %>%
+    mutate(region_type = "Continent"),  # Add a column to indicate 'Continent'
+  biogeographic_realm_summary %>%
+    mutate(region_type = "Biogeographic Realm")  # Add a column to indicate 'Biogeographic Realm'
+)
+
+# Reorder columns to have a cleaner layout
+combined_summary_table <- combined_summary_table %>%
+  select(region_type, region_name, species_count, available_names, new_descriptions, split_species, area, species_density)
+
+# Arrange the rows so that Continents come first, followed by Biogeographic Realms
+combined_summary_table <- combined_summary_table %>%
+  arrange(region_type, desc(species_count))
+
+# Rename the columns to be more publication-friendly
+colnames(combined_summary_table) <- c("Region Type", "Region Name", "Total Species", "Available Names", 
+                                      "New Species Descriptions", "Split Species", "Land Area (million km²)", 
+                                      "Species Density (per million km²)")
+
+# Create the gt table with region type as a header row
+combined_summary_gt <- combined_summary_table %>%
+  gt(groupname_col = "Region Type") %>%  # Use 'Region Type' as a header row
+  fmt_number(
+    columns = c(`Land Area (million km²)`, `Species Density (per million km²)`),
+    decimals = 2
+  ) %>% 
+  fmt_number(
+    columns = c(`Total Species`, `Available Names`, `New Species Descriptions`, `Split Species`),
+    decimals = 0
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", style = "italic"),
+    locations = cells_body(columns = c("Region Name"))
+  ) %>%
+  tab_options(
+    table.font.names = "Helvetica",
+    table.border.top.style = "solid",
+    table.border.bottom.style = "solid",
+    table.border.top.color = "black",
+    table.border.bottom.color = "black",
+    table.font.size = 12
+  ) %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  cols_width(
+    everything() ~ px(120)
+  ) %>%
+  tab_footnote(
+    footnote = "Species Density calculated as Total Species / Land Area",
+    locations = cells_column_labels(c(`Species Density (per million km²)`))
+  ) %>%
+  tab_footnote(
+    footnote = "Total Species includes recently extinct species but not domesticated or introduced species",
+    locations = cells_column_labels(c(`Total Species`))
+  )
+
+# Print the table
+combined_summary_gt
+
+# Saving the table as an HTML
+gtsave(combined_summary_gt, "tables/region_summary_table.html")
 
 
 ######Mapping Setup######
@@ -1253,7 +1504,7 @@ create_map <- function(data, fill_var, fill_label, low_color, high_color, show_t
   )
   
   map_plot <- ggplot(data) +
-    geom_sf(aes_string(fill = fill_var), color = "black") +
+    geom_sf(aes_string(fill = fill_var), color = "black") +  # General map borders remain
     scale_fill_gradient(low = low_color, high = high_color, na.value = "gray90") +
     coord_sf(crs = "+proj=robin", expand = FALSE) +
     theme_minimal() +
@@ -1494,7 +1745,206 @@ ggsave(
   dpi = 300
 )
 
-######Type Specimen Museum Map######
+######US States Species Diversity Map######
+
+# Creating a map of species diversity by US state
+
+# Load packages
+library(usmap)
+library(ggplot2)
+library(dplyr)
+
+# Create a copy of fips_info and modify the name for Georgia
+fips_info_modified <- usmap::fips_info() %>%
+  mutate(full = ifelse(full == "Georgia", "Georgia (United States)", full))
+
+# Create a new dataframe for plotting by matching state names with abbreviations
+plot_data <- geography_summary_df %>%
+  mutate(state = fips_info_modified$abbr[match(region_name, fips_info_modified$full)]) %>%
+  filter(!is.na(state))
+
+# Plot the US state species totals map using usmap
+map_us_states_species <- plot_usmap(data = plot_data, values = "species_count", regions = "states") +
+  scale_fill_gradient(
+    low = "beige", 
+    high = "dodgerblue3", 
+    name = "Total Species", 
+    na.value = "grey80"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.direction = "horizontal",
+    legend.title = element_text(size = 12, face = "bold", hjust = 0),
+    legend.text = element_text(size = 10),
+    legend.key.width = unit(15, "cm"),
+    legend.key.height = unit(0.5, "cm"),
+    plot.margin = margin(10, 10, 20, 10),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank()
+  ) +
+  guides(
+    fill = guide_colorbar(
+      title.position = "top",
+      title.hjust = 0,
+      barwidth = unit(15, "cm"),
+      barheight = unit(0.5, "cm")
+    )
+  )
+
+# Print the US state species map
+map_us_states_species
+
+# Saving the US state species map as a JPEG file
+ggsave(
+  filename = paste0("map_figures\\us_states_species_map.jpg"),
+  plot = map_us_states_species,
+  device = "jpeg",
+  width = 15, height = 10, units = "in",
+  dpi = 300
+)
+
+######NOT FOR THIS PAPER type_specimen_df Supplement Table######
+
+# Summarizing the data associated with type specimens on the MDD for a supplemental table
+
+# Load packages
+#library(readxl)
+#library(readr)
+#library(dplyr)
+#library(tidyr)
+#library(stringr)
+#library(purrr)
+
+# Load the synonym and museum metadata sheets from excel files
+#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
+#museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
+
+# Remove nomen_novum to avoid repeated types for multiple names
+filtered_synonyms <- synonyms_df %>%
+  filter(MDD_nomenclature_status != "nomen_novum")
+
+# Extract known institution labels from the collection dataset
+known_institution_labels <- unique(museums_metadata$label)
+
+# Define a function to extract museum labels correctly and generalize "Name collection" cases
+extract_institution_codes <- function(holotype) {
+  # Check if the holotype is missing or NA
+  if (is.na(holotype) || holotype == "") {
+    return(NA_character_)  # If the type is NA or empty, return NA
+  }
+  
+  # Split the string by commas first to handle multiple specimens in one field
+  parts <- str_split(holotype, ",\\s*")[[1]]
+  
+  # Extract the museum label from each part
+  codes <- lapply(parts, function(part) {
+    # Extract up to the first separator (space, colon, period, hyphen, slash)
+    label <- str_extract(part, "^[^\\s:.,/-]+")
+    
+    # Generalize to handle cases with text string "Name collection" by checking if it's a single word not in known institution labels
+    if (!label %in% known_institution_labels && !str_detect(label, "\\d") && nchar(label) > 1) {
+      return(paste(label, "collection"))
+    } else {
+      return(label)
+    }
+  })
+  
+  # Return unique and non-empty codes
+  unique_codes <- unique(unlist(codes[!is.na(codes) & codes != ""]))
+  
+  # Return NA if no valid codes were found
+  if (length(unique_codes) == 0) {
+    return(NA_character_)
+  }
+  
+  return(unique_codes)
+}
+
+# Apply the function to extract institution codes
+filtered_synonyms <- filtered_synonyms %>%
+  rowwise() %>%
+  mutate(institution_codes = list(extract_institution_codes(MDD_holotype))) %>%
+  ungroup()
+
+# Flatten the list of institution codes into separate rows
+synonyms_expanded <- filtered_synonyms %>%
+  unnest(institution_codes) %>%
+  filter(!is.na(institution_codes) & institution_codes != "") %>%
+  distinct()
+
+# Summarize the data by institution, counting every appearance
+summary_df <- synonyms_expanded %>%
+  group_by(institution_codes) %>%
+  summarise(
+    total_type_specimens = n(),
+    holotype_count = sum(MDD_type_kind == "holotype", na.rm = TRUE),
+    syntype_count = sum(MDD_type_kind == "syntypes", na.rm = TRUE),
+    lectotype_count = sum(MDD_type_kind == "lectotype", na.rm = TRUE),
+    neotype_count = sum(MDD_type_kind == "neotype", na.rm = TRUE),
+    nonexistent_count = sum(MDD_type_kind == "nonexistent", na.rm = TRUE)
+  )
+
+# Merge with the museums metadata to include lat/lon
+type_specimen_df <- museums_metadata %>%
+  select(label, name, country, state, city, museum_city_latitude, museum_city_longitude) %>%
+  left_join(summary_df, by = c("label" = "institution_codes")) %>%
+  rename(
+    museum_label = label,
+    museum_name = name,
+    museum_country = country,
+    museum_subregion = state,
+    museum_city = city
+  )
+
+# Identify and summarize unmatched labels (used to check for issues)
+unmatched_labels <- synonyms_expanded %>%
+  filter(!institution_codes %in% museums_metadata$label)
+
+unmatched_count <- unmatched_labels %>%
+  summarise(total_type_specimens = n())
+
+# Calculate Total Types (excluding NAs and empty values)
+total_types <- type_specimen_df %>%
+  filter(!is.na(museum_label) & museum_label != "") %>%
+  summarise(
+    museum_name = "Total Types",
+    total_type_specimens = sum(total_type_specimens, na.rm = TRUE),
+    holotype_count = sum(holotype_count, na.rm = TRUE),
+    syntype_count = sum(syntype_count, na.rm = TRUE),
+    lectotype_count = sum(lectotype_count, na.rm = TRUE),
+    neotype_count = sum(neotype_count, na.rm = TRUE),
+    nonexistent_count = sum(nonexistent_count, na.rm = TRUE)
+  )
+
+# Combine the final summary with Total Unmatched and Total Types rows
+type_specimen_df <- bind_rows(
+  type_specimen_df,
+  data.frame(museum_name = "Total Unmatched", 
+             total_type_specimens = unmatched_count$total_type_specimens,
+             holotype_count = NA, syntype_count = NA,
+             lectotype_count = NA, neotype_count = NA,
+             nonexistent_count = NA),
+  total_types
+)
+
+# Remove museums with no mammal type localities in them
+type_specimen_df <- type_specimen_df %>%
+  filter(!is.na(total_type_specimens))
+
+# View the unmatched labels summary (was used to check for issues)
+print(unmatched_labels)
+
+# View the final type specimen summary
+print(type_specimen_df)
+
+# Saving the nomenclature summary as a CSV file
+write.csv(type_specimen_df, "supplementary_files\\type_specimen_data_summary.csv", row.names = FALSE)
+
+
+######NOT FOR THIS PAPER Type Specimen Museum Map######
 
 # Creating a map of the where type specimens are primarily housed, 
 # including a gradient map and point data for all museums with 10 or more type specimens 
@@ -1639,7 +2089,7 @@ ggsave(
 )
 
 
-######Country Taxonomic Disparity Map######
+######NOT FOR THIS PAPER Country Taxonomic Disparity Map######
 
 # Creating a map that scales the number of described species
 # in a country by the number of species recognized in the country
@@ -1716,63 +2166,3 @@ ggsave(
 )
 
 
-######US States Species Diversity Map######
-
-# Creating a map of species diversity by US state
-
-# Load packages
-library(usmap)
-library(ggplot2)
-library(dplyr)
-
-# Create a copy of fips_info and modify the name for Georgia
-fips_info_modified <- usmap::fips_info() %>%
-  mutate(full = ifelse(full == "Georgia", "Georgia (United States)", full))
-
-# Create a new dataframe for plotting by matching state names with abbreviations
-plot_data <- geography_summary_df %>%
-  mutate(state = fips_info_modified$abbr[match(region_name, fips_info_modified$full)]) %>%
-  filter(!is.na(state))
-
-# Plot the US state species totals map using usmap
-map_us_states_species <- plot_usmap(data = plot_data, values = "species_count", regions = "states") +
-  scale_fill_gradient(
-    low = "beige", 
-    high = "dodgerblue3", 
-    name = "Total Species", 
-    na.value = "grey80"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom",
-    legend.direction = "horizontal",
-    legend.title = element_text(size = 12, face = "bold", hjust = 0),
-    legend.text = element_text(size = 10),
-    legend.key.width = unit(15, "cm"),
-    legend.key.height = unit(0.5, "cm"),
-    plot.margin = margin(10, 10, 20, 10),
-    axis.title = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    panel.background = element_blank()
-  ) +
-  guides(
-    fill = guide_colorbar(
-      title.position = "top",
-      title.hjust = 0,
-      barwidth = unit(15, "cm"),
-      barheight = unit(0.5, "cm")
-    )
-  )
-
-# Print the US state species map
-map_us_states_species
-
-# Saving the US state species map as a JPEG file
-ggsave(
-  filename = paste0("map_figures\\us_states_species_map.jpg"),
-  plot = map_us_states_species,
-  device = "jpeg",
-  width = 15, height = 10, units = "in",
-  dpi = 300
-)
