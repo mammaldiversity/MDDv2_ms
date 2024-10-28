@@ -1,15 +1,14 @@
 ####################################################################
-#R-Script country_matrix_v2.R Madeleine Becker
+# R-Script country_matrix_v2.R Madeleine Becker
 #
-#This script generates .txt file with a presence matrix (0=absence, 1=presence, 2=potential presence)
-#from on an MDD-formatted 2-column csv input file of species and country distributions (separated by pipes and no spaces).
-#It also generates a .txt file with total number of species by country (strict, lenient, and endemics only)
-#Replace file names with full paths before running script
+# This script generates .txt file with a presence matrix (0=absence, 1=presence, 2=potential presence) from on an MDD-formatted csv input file 
+# It also generates a .txt file with total number of species by country (strict, lenient, and endemics only)
+# Replace file names with full paths before running script
 #
-#This can also be customized for other columns in MDD such as continents or biogeographic realms, if formatted properly. N.B. that totals may be less applicable (e.g. strict vs. lenient)
+# This can also be customized for other columns in MDD such as continents or biogeographic realms, if formatted properly. N.B. that totals may be less applicable (e.g. strict vs. lenient)
 #
 #
-#Updated from a previous 2022 script by MAB 10/28/24
+# Updated from a previous 2022 script by MAB 10/28/24
 # Implemented in R.4.3.2
 ####################################################################
 
