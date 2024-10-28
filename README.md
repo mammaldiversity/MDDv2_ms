@@ -13,11 +13,11 @@
 
 #### Scripts
 
-- country_matrix.R: script for parsing the 'countryDistribution' field of the MDD v1.8 database into a species-by-country matrix.
+- country_matrix_v2.R: script for parsing the 'countryDistribution' field of the MDD v2.0 database into a species-by-country matrix.
 
 #### Outputs
 
-- countryDistribution: Parsing of the 'countryDistribution' field in the MDD v1.8 database into a species-by-country matrix; each country in which the species is extant or reintroduced into its native distribution is listed and separated by pipes (|); 0=absence, 1=presence, 2=potential presence.  The script 'country_matrix.R' is used to create the files 'country_matrix_v1.8.txt' and 'country_totals_v1.8.txt'
+- countryDistribution: Parsing of the 'countryDistribution' field in the MDD v2.0 database into a species-by-country matrix; each country in which the species is extant or reintroduced into its native distribution is listed and separated by pipes (|); 0=absence, 1=presence, 2=potential presence.  The script 'country_matrix_v2.R' is used to create the files 'country_matrix_v2.0.txt' and 'country_totals_v2.0.txt'
 
 #### Figures
 
