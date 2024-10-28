@@ -1,16 +1,15 @@
 # This is a work space for all figures and supplementary tables
 # Made by Connor J Burgin for the Mammal Diversity Database v2.0 manuscript
-# Created in R version 4.3.2
+# Created in R version 4.3.3
 
 # Set working directory (should be the only thing you need to alter to run script)
 setwd("G:\\My Drive\\Projects\\MDD_v2.0_manuscript\\final_mddv2_stats_figures")
-
 
 ######Loading Packages and Base Data######
 
 # Install and load packages for all sections
 
-#install.packages(c('readxl','readr','dplyr','tidyr','stringr','purrr','gt','webshot2','rnaturalearth','sf','ggplot2','zoo','grid','scales','usmap'))
+#install.packages(c('readxl','readr','dplyr','tidyr','stringr','purrr','gt','patchwork','webshot2','rnaturalearth','sf','ggplot2','zoo','grid','scales','usmap'))
 library(readxl)
 library(readr)
 library(dplyr)
@@ -18,6 +17,7 @@ library(tidyr)
 library(stringr)
 library(purrr)
 library(gt)
+library(patchwork)
 library(webshot2)
 library(rnaturalearth)
 library(sf)
@@ -32,17 +32,41 @@ species_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\MDD_v2.0_6759species.csv
 synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
 geographic_metadata <- read_excel("base_files\\mdd_geographic_terms_metadata.xlsx")
 
+# Cleaning synonym sheet
+synonyms_df_cleaned <- synonyms_df %>%
+  mutate(across(everything(), ~na_if(str_trim(.), ""))) %>%  # Convert empty strings to NA in all columns
+  mutate(
+    # Clean latitude and longitude by removing anything that's not a number, period, or minus sign
+    MDD_type_latitude = str_trim(str_replace_all(MDD_type_latitude, "[^0-9.-]", "")),
+    MDD_type_longitude = str_trim(str_replace_all(MDD_type_longitude, "[^0-9.-]", "")),
+    
+    # Convert cleaned latitude and longitude to numeric, treating empty strings as NA
+    MDD_type_latitude = as.numeric(MDD_type_latitude),
+    MDD_type_longitude = as.numeric(MDD_type_longitude),
+    
+    # Clean other fields for non-printable characters and trim spaces
+    MDD_authority_citation = str_trim(str_replace_all(MDD_authority_citation, "[^[:print:]]", "")),
+    MDD_unchecked_authority_citation = str_trim(str_replace_all(MDD_unchecked_authority_citation, "[^[:print:]]", "")),
+    MDD_original_type_locality = str_trim(str_replace_all(MDD_original_type_locality, "[^[:print:]]", "")),
+    MDD_unchecked_type_locality = str_trim(str_replace_all(MDD_unchecked_type_locality, "[^[:print:]]", "")),
+    MDD_author = str_trim(str_replace_all(MDD_author, "[^[:print:]]", "")),
+    MDD_original_combination = str_trim(str_replace_all(MDD_original_combination, "[^[:print:]]", "")),
+    MDD_original_rank = str_trim(str_replace_all(MDD_original_rank, "[^[:print:]]", "")),
+    MDD_type_kind = str_trim(str_replace_all(MDD_type_kind, "[^[:print:]]", "")),
+    MDD_type_specimen_link = str_trim(str_replace_all(MDD_type_specimen_link, "[^[:print:]]", ""))
+  )
+
+
 #NOT FOR THIS PUB
 #museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
 
 # Saving all base files as CSV files to be included in the supplemental material
 write.csv(species_df, "supplementary_files\\mdd_v2_species_sheet.csv", row.names = FALSE)
-write.csv(synonyms_df, "supplementary_files\\mdd_v2_synonym_sheet.csv", row.names = FALSE)
+write.csv(synonyms_df_cleaned, "supplementary_files\\mdd_v2_synonym_sheet.csv", row.names = FALSE)
 write.csv(geographic_metadata, "supplementary_files\\mdd_v2_geography_list_sheet.csv", row.names = FALSE)
 
 #NOT FOR THIS PUB
 #write.csv(museums_metadata, "supplementary_files\\mdd_v2_museum_list_sheet.csv", row.names = FALSE)
-
 
 ######taxonomic_summary_df Supplement Table######
 
@@ -99,7 +123,9 @@ species_summary <- species_df %>%
     IUCN_EW_species = sum(str_detect(iucnStatus, "EW")),
     IUCN_EX_species = sum(str_detect(iucnStatus, "EX")),
     IUCN_DD_species = sum(str_detect(iucnStatus, "DD")),
-    IUCN_NE_species = sum(str_detect(iucnStatus, "NE"))
+    IUCN_NE_species = sum(str_detect(iucnStatus, "NE")),
+    IUCN_threatened_total = sum(str_detect(iucnStatus, "VU|EN|CR|EW")),
+    IUCN_understudied_total = sum(str_detect(iucnStatus, "DD|NE"))
   ) %>%
   mutate(split_since_MSW3 = new_since_MSW3 - new_descriptions_since_MSW3) %>%
   left_join(species_df %>%
@@ -114,7 +140,7 @@ species_summary <- species_df %>%
 statuses_of_interest <- c("available", "as_emended", "preoccupied", "nomen_novum", "partially_suppressed", "fully_suppressed")
 
 # Summarize the available synonyms per order and family
-synonyms_summary <- synonyms_df %>%
+synonyms_summary <- synonyms_df_cleaned %>%
   filter(MDD_nomenclature_status %in% statuses_of_interest) %>%
   group_by(MDD_order, MDD_family) %>%
   summarise(available_names = n()) %>%
@@ -149,7 +175,9 @@ order_totals <- species_df %>%
     IUCN_EW_species = sum(str_detect(iucnStatus, "EW")),
     IUCN_EX_species = sum(str_detect(iucnStatus, "EX")),
     IUCN_DD_species = sum(str_detect(iucnStatus, "DD")),
-    IUCN_NE_species = sum(str_detect(iucnStatus, "NE"))
+    IUCN_NE_species = sum(str_detect(iucnStatus, "NE")),
+    IUCN_threatened_total = sum(str_detect(iucnStatus, "VU|EN|CR|EW")),
+    IUCN_understudied_total = sum(str_detect(iucnStatus, "DD|NE"))
   ) %>%
   mutate(split_since_MSW3 = new_since_MSW3 - new_descriptions_since_MSW3) %>%
   left_join(species_df %>%
@@ -187,7 +215,9 @@ global_totals <- species_df %>%
     IUCN_EW_species = sum(str_detect(iucnStatus, "EW")),
     IUCN_EX_species = sum(str_detect(iucnStatus, "EX")),
     IUCN_DD_species = sum(str_detect(iucnStatus, "DD")),
-    IUCN_NE_species = sum(str_detect(iucnStatus, "NE"))
+    IUCN_NE_species = sum(str_detect(iucnStatus, "NE")),
+    IUCN_threatened_total = sum(str_detect(iucnStatus, "VU|EN|CR|EW")),
+    IUCN_understudied_total = sum(str_detect(iucnStatus, "DD|NE"))
   ) %>%
   mutate(split_since_MSW3 = new_since_MSW3 - new_descriptions_since_MSW3) %>%
   left_join(species_df %>%
@@ -208,7 +238,7 @@ global_totals <- species_df %>%
 taxonomic_summary_df <- combined_taxon_summary %>%
   bind_rows(order_totals) %>%
   bind_rows(global_totals) %>%
-  select(rank, order, family, available_names, species_count, living_species, wild_species, extinct_species, domestic_species, genera, living_genera, extinct_genera, families, living_families, extinct_families, new_since_MSW3, new_descriptions_since_MSW3, split_since_MSW3, IUCN_LC_species, IUCN_NT_species, IUCN_VU_species, IUCN_EN_species, IUCN_CR_species, IUCN_EW_species, IUCN_EX_species)
+  select(rank, order, family, available_names, species_count, living_species, wild_species, extinct_species, domestic_species, genera, living_genera, extinct_genera, families, living_families, extinct_families, new_since_MSW3, new_descriptions_since_MSW3, split_since_MSW3, IUCN_LC_species, IUCN_NT_species, IUCN_VU_species, IUCN_EN_species, IUCN_CR_species, IUCN_EW_species, IUCN_EX_species, IUCN_threatened_total, IUCN_understudied_total)
 
 # Display the final summary
 print(taxonomic_summary_df)
@@ -227,9 +257,8 @@ write.csv(taxonomic_summary_df, "supplementary_files\\taxonomy_data_summary.csv"
 #library(stringr)
 #library(tidyr)
 
-# Load the species, synonym, and geographic metadata sheets
+# Load the species, synonym (cleaned), and geographic metadata sheets
 #species_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\MDD_v2.0_6759species.csv")
-#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
 #geographic_metadata <- read_excel("G:\\My Drive\\Projects\\R Data/R-Data\\mdd_thesis_work\\mdd_geographic_terms_metadata.xlsx")
 
 # Create a new dataframe from the geographic metadata sheet
@@ -328,7 +357,9 @@ confirmed_species_counts <- expanded_species_distribution %>%
     IUCN_EW_species = sum(str_detect(iucnStatus, "^EW"), na.rm = TRUE),
     IUCN_EX_species = sum(str_detect(iucnStatus, "^EX"), na.rm = TRUE),
     IUCN_DD_species = sum(str_detect(iucnStatus, "^DD"), na.rm = TRUE),
-    IUCN_NE_species = sum(str_detect(iucnStatus, "^NE"), na.rm = TRUE)
+    IUCN_NE_species = sum(str_detect(iucnStatus, "^NE"), na.rm = TRUE),
+    IUCN_threatened_total = sum(str_detect(iucnStatus, "^VU|^EN|^CR|^EW"), na.rm = TRUE),
+    IUCN_understudied_total = sum(str_detect(iucnStatus, "^DD|^NE"), na.rm = TRUE)
   ) %>%
   rename(region_name = regions_clean)
 
@@ -343,14 +374,14 @@ species_counts <- confirmed_species_counts %>%
   replace_na(list(possible_species_count = 0))
 
 # Summarize available names for MDD_type_country
-available_names_country <- synonyms_df %>%
+available_names_country <- synonyms_df_cleaned %>%
   filter(MDD_nomenclature_status %in% c("available", "as_emended", "preoccupied", "nomen_novum", "partially_suppressed", "fully_suppressed")) %>%
   group_by(MDD_type_country) %>%
   summarise(available_names_country = n()) %>%
   rename(region_name = MDD_type_country)
 
 # Summarize available names for MDD_type_subregion
-available_names_subregion <- synonyms_df %>%
+available_names_subregion <- synonyms_df_cleaned %>%
   filter(MDD_nomenclature_status %in% c("available", "as_emended", "preoccupied", "nomen_novum", "partially_suppressed", "fully_suppressed")) %>%
   group_by(MDD_type_subregion) %>%
   summarise(available_names_subregion = n()) %>%
@@ -378,7 +409,8 @@ geography_summary_df <- geographic_data_df %>%
          available_names, species_count, possible_species_count, extinct_species_count, living_species_count,
          new_since_MSW3, new_descriptions_since_MSW3, endemic_species,
          IUCN_LC_species, IUCN_NT_species, IUCN_VU_species, IUCN_EN_species,
-         IUCN_CR_species, IUCN_EW_species, IUCN_EX_species, IUCN_DD_species, IUCN_NE_species)
+         IUCN_CR_species, IUCN_EW_species, IUCN_EX_species, IUCN_DD_species, IUCN_NE_species, 
+         IUCN_threatened_total, IUCN_understudied_total)
 
 # Function to calculate and update available names for a specific biogeographic realm
 update_available_names_for_realm <- function(realm_name, result_df, additional_filters = NULL) {
@@ -505,108 +537,306 @@ write.csv(geography_summary_df, "supplementary_files\\geographic_data_summary.cs
 # Load packages
 #library(dplyr)
 #library(readxl)
+#library(stringr)
 
-# Load the synonym sheet from an excel file
-#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
+# Use cleaned synonym sheet from earlier
 
-# Summarize the name totals for the MDD_validity column
-validity_summary <- synonyms_df %>%
-  group_by(MDD_validity) %>%
-  summarise(total_names = n()) %>%
-  ungroup() %>%
-  mutate(status_type = "Validity Status") %>%
-  rename(status = MDD_validity)
-
-# Process the MDD_nomenclature_status column to handle multiple values separated by pipes
-nomenclature_split <- synonyms_df %>%
-  separate_rows(MDD_nomenclature_status, sep = "\\|") %>%
-  mutate(MDD_nomenclature_status = str_trim(MDD_nomenclature_status)) %>%
-  group_by(MDD_nomenclature_status) %>%
-  summarise(total_names = n()) %>%
-  ungroup() %>%
-  mutate(status_type = "Nomenclature Status") %>%
-  rename(status = MDD_nomenclature_status)
-
-# Combine the validity and nomenclature summaries
-val_nom_summary_df <- bind_rows(validity_summary, nomenclature_split)
-
-# Create logical flags for each relevant column
-flagged_synonyms_df <- synonyms_df %>%
+# Create flagged_synonyms_df using the cleaned data and retain MDD_syn_ID
+flagged_synonyms_df <- synonyms_df_cleaned %>%
   mutate(
-    authority_citation_flag = !is.na(MDD_authority_citation) | !is.na(MDD_unchecked_authority_citation),
-    type_locality_flag = !is.na(MDD_original_type_locality) | !is.na(MDD_unchecked_type_locality),
-    authority_author_flag = !is.na(MDD_author),
-    authority_year_flag = !is.na(MDD_year),
-    original_combination_flag = !is.na(MDD_original_combination),
-    original_rank_flag = !is.na(MDD_original_rank),
-    verified_authority_citation_flag = !is.na(MDD_authority_citation),
-    authority_page_flag = !is.na(MDD_authority_page),
-    authority_link_flag = !is.na(MDD_authority_link),
-    authority_page_link_flag = !is.na(MDD_authority_page_link),
-    type_coordinates_flag = !is.na(MDD_type_latitude),
-    type_specimen_flag = !is.na(MDD_type_kind),
-    type_specimen_link_flag = !is.na(MDD_type_specimen_link)
+    type_coordinates_flag = if_else(!is.na(MDD_type_latitude), TRUE, FALSE),
+    original_type_locality_flag = if_else(!is.na(MDD_original_type_locality) & MDD_original_type_locality != "", TRUE, FALSE),
+    authority_citation_flag = if_else(!is.na(MDD_authority_citation) & MDD_authority_citation != "" |
+                                        !is.na(MDD_unchecked_authority_citation) & MDD_unchecked_authority_citation != "", TRUE, FALSE),
+    type_locality_flag = if_else(!is.na(MDD_original_type_locality) & MDD_original_type_locality != "" |
+                                   !is.na(MDD_unchecked_type_locality) & MDD_unchecked_type_locality != "", TRUE, FALSE),
+    authority_author_flag = if_else(!is.na(MDD_author) & MDD_author != "", TRUE, FALSE),
+    authority_year_flag = if_else(!is.na(MDD_year), TRUE, FALSE),
+    original_combination_flag = if_else(!is.na(MDD_original_combination) & MDD_original_combination != "", TRUE, FALSE),
+    original_rank_flag = if_else(!is.na(MDD_original_rank) & MDD_original_rank != "", TRUE, FALSE),
+    verified_authority_citation_flag = if_else(!is.na(MDD_authority_citation) & MDD_authority_citation != "", TRUE, FALSE),
+    authority_page_flag = if_else(!is.na(MDD_authority_page) & MDD_authority_page != "", TRUE, FALSE),
+    authority_link_flag = if_else(!is.na(MDD_authority_link) & MDD_authority_link != "", TRUE, FALSE),
+    authority_page_link_flag = if_else(!is.na(MDD_authority_page_link) & MDD_authority_page_link != "", TRUE, FALSE),
+    type_specimen_flag = if_else(!is.na(MDD_type_kind) & MDD_type_kind != "", TRUE, FALSE),
+    type_specimen_link_flag = if_else(!is.na(MDD_type_specimen_link) & MDD_type_specimen_link != "", TRUE, FALSE)
   )
 
-# Apply the logical flags to the summary
-val_nom_summary_df <- val_nom_summary_df %>%
+# Separate rows based on multiple values in MDD_nomenclature_status, but retain the original MDD_syn_ID
+synonyms_df_separated <- synonyms_df_cleaned %>%
+  separate_rows(MDD_nomenclature_status, sep = "\\|") %>%
+  mutate(MDD_nomenclature_status = str_trim(MDD_nomenclature_status))
+
+# Create flagged_synonyms_df using the separated data and retain MDD_syn_ID
+flagged_sep_synonyms_df <- synonyms_df_separated %>%
+  mutate(
+    type_coordinates_flag = if_else(!is.na(MDD_type_latitude), TRUE, FALSE),
+    original_type_locality_flag = if_else(!is.na(MDD_original_type_locality) & MDD_original_type_locality != "", TRUE, FALSE),
+    authority_citation_flag = if_else(!is.na(MDD_authority_citation) & MDD_authority_citation != "" |
+                                        !is.na(MDD_unchecked_authority_citation) & MDD_unchecked_authority_citation != "", TRUE, FALSE),
+    type_locality_flag = if_else(!is.na(MDD_original_type_locality) & MDD_original_type_locality != "" |
+                                   !is.na(MDD_unchecked_type_locality) & MDD_unchecked_type_locality != "", TRUE, FALSE),
+    authority_author_flag = if_else(!is.na(MDD_author) & MDD_author != "", TRUE, FALSE),
+    authority_year_flag = if_else(!is.na(MDD_year), TRUE, FALSE),
+    original_combination_flag = if_else(!is.na(MDD_original_combination) & MDD_original_combination != "", TRUE, FALSE),
+    original_rank_flag = if_else(!is.na(MDD_original_rank) & MDD_original_rank != "", TRUE, FALSE),
+    verified_authority_citation_flag = if_else(!is.na(MDD_authority_citation) & MDD_authority_citation != "", TRUE, FALSE),
+    authority_page_flag = if_else(!is.na(MDD_authority_page) & MDD_authority_page != "", TRUE, FALSE),
+    authority_link_flag = if_else(!is.na(MDD_authority_link) & MDD_authority_link != "", TRUE, FALSE),
+    authority_page_link_flag = if_else(!is.na(MDD_authority_page_link) & MDD_authority_page_link != "", TRUE, FALSE),
+    type_specimen_flag = if_else(!is.na(MDD_type_kind) & MDD_type_kind != "", TRUE, FALSE),
+    type_specimen_link_flag = if_else(!is.na(MDD_type_specimen_link) & MDD_type_specimen_link != "", TRUE, FALSE)
+  )
+
+# Summarizing the data by status_type and status
+intermediate_status_df <- flagged_sep_synonyms_df %>%
+  select(MDD_validity, MDD_nomenclature_status) %>%
+  pivot_longer(
+    cols = c(MDD_validity, MDD_nomenclature_status),
+    names_to = "status_type",
+    values_to = "status"
+  ) %>%
+  mutate(status_type = case_when(
+    status_type == "MDD_validity" ~ "Validity Status",
+    status_type == "MDD_nomenclature_status" ~ "Nomenclature Status"
+  )) %>%
+  distinct(status_type, status)  # Only keep distinct combinations
+
+# Now create the summary by applying the flags with the correct filters
+val_nom_summary_df <- intermediate_status_df %>%
   rowwise() %>%
   mutate(
-    authority_author_count = sum(synonyms_df$authority_author_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    authority_year_count = sum(synonyms_df$authority_year_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    year_since_2000_count = sum(synonyms_df$MDD_year >= 2000 & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status)), na.rm = TRUE),
-    original_combination_total = sum(synonyms_df$original_combination_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    original_rank_count = sum(synonyms_df$original_rank_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    authority_citation_count = sum(synonyms_df$authority_citation_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    verified_authority_citation_count = sum(synonyms_df$verified_authority_citation_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    authority_page_count = sum(synonyms_df$authority_page_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    authority_link_count = sum(synonyms_df$authority_link_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    authority_page_link_count = sum(synonyms_df$authority_page_link_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    type_locality_count = sum(synonyms_df$type_locality_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    original_type_locality_count = sum(synonyms_df$MDD_validity == status & !is.na(synonyms_df$MDD_original_type_locality) | grepl(status, synonyms_df$MDD_nomenclature_status) & !is.na(synonyms_df$MDD_original_type_locality)),
-    type_coordinates_count = sum(synonyms_df$type_coordinates_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    type_specimen_count = sum(synonyms_df$type_specimen_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status))),
-    type_specimen_link_count = sum(synonyms_df$type_specimen_link_flag & (synonyms_df$MDD_validity == status | grepl(status, synonyms_df$MDD_nomenclature_status)))
+    # Apply the filter using exact matching for MDD_validity and MDD_nomenclature_status
+    total_names = sum(flagged_synonyms_df$MDD_validity == status | 
+                        flagged_synonyms_df$MDD_nomenclature_status == status, na.rm = TRUE),
+    
+    authority_author_count = sum((flagged_synonyms_df$authority_author_flag == TRUE) & 
+                                   (flagged_synonyms_df$MDD_validity == status | 
+                                      flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    authority_year_count = sum((flagged_synonyms_df$authority_year_flag == TRUE) & 
+                                 (flagged_synonyms_df$MDD_validity == status | 
+                                    flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    year_since_2000_count = sum(flagged_synonyms_df$MDD_year >= 2000 & 
+                                  (flagged_synonyms_df$MDD_validity == status | 
+                                     flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    original_combination_total = sum((flagged_synonyms_df$original_combination_flag == TRUE) & 
+                                       (flagged_synonyms_df$MDD_validity == status | 
+                                          flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    original_rank_count = sum((flagged_synonyms_df$original_rank_flag == TRUE) & 
+                                (flagged_synonyms_df$MDD_validity == status | 
+                                   flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    authority_citation_count = sum((flagged_synonyms_df$authority_citation_flag == TRUE) & 
+                                     (flagged_synonyms_df$MDD_validity == status | 
+                                        flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    verified_authority_citation_count = sum((flagged_synonyms_df$verified_authority_citation_flag == TRUE) & 
+                                              (flagged_synonyms_df$MDD_validity == status | 
+                                                 flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    authority_page_count = sum((flagged_synonyms_df$authority_page_flag == TRUE) & 
+                                 (flagged_synonyms_df$MDD_validity == status | 
+                                    flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    authority_link_count = sum((flagged_synonyms_df$authority_link_flag == TRUE) & 
+                                 (flagged_synonyms_df$MDD_validity == status | 
+                                    flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    authority_page_link_count = sum((flagged_synonyms_df$authority_page_link_flag == TRUE) & 
+                                      (flagged_synonyms_df$MDD_validity == status | 
+                                         flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    type_locality_count = sum((flagged_synonyms_df$type_locality_flag == TRUE) & 
+                                (flagged_synonyms_df$MDD_validity == status | 
+                                   flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    original_type_locality_count = sum((flagged_synonyms_df$original_type_locality_flag == TRUE) & 
+                                         (flagged_synonyms_df$MDD_validity == status | 
+                                            flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    type_coordinates_count = sum((flagged_synonyms_df$type_coordinates_flag == TRUE) & 
+                                   (flagged_synonyms_df$MDD_validity == status | 
+                                      flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    type_specimen_count = sum((flagged_synonyms_df$type_specimen_flag == TRUE) & 
+                                (flagged_synonyms_df$MDD_validity == status | 
+                                   flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE),
+    
+    type_specimen_link_count = sum((flagged_synonyms_df$type_specimen_link_flag == TRUE) & 
+                                     (flagged_synonyms_df$MDD_validity == status | 
+                                        flagged_synonyms_df$MDD_nomenclature_status == status), na.rm = TRUE)
   ) %>%
   ungroup()
 
-# Calculate totals directly from the synonyms_df
-total_synonyms <- flagged_synonyms_df %>%
+# Filter the rows with 'Validity Status' in the 'status_type' column
+validity_status_rows <- val_nom_summary_df %>%
+  filter(status_type == "Validity Status")
+
+# Now calculate the sum for each numeric column (which are your flag counts)
+total_synonyms <- validity_status_rows %>%
   summarise(
     status_type = "Total",
     status = "total_synonyms",
-    total_names = n(),
-    authority_author_count = sum(authority_author_flag),
-    authority_year_count = sum(authority_year_flag),
-    year_since_2000_count = sum(MDD_year >= 2000, na.rm = TRUE),
-    original_combination_total = sum(original_combination_flag),
-    original_rank_count = sum(original_rank_flag),
-    authority_citation_count = sum(authority_citation_flag),
-    verified_authority_citation_count = sum(verified_authority_citation_flag),
-    authority_page_count = sum(authority_page_flag),
-    authority_link_count = sum(authority_link_flag),
-    authority_page_link_count = sum(authority_page_link_flag),
-    type_locality_count = sum(type_locality_flag),
-    original_type_locality_count = sum(!is.na(MDD_original_type_locality)),
-    type_coordinates_count = sum(type_coordinates_flag),
-    type_specimen_count = sum(type_specimen_flag),
-    type_specimen_link_count = sum(type_specimen_link_flag)
+    total_names = sum(total_names, na.rm = TRUE),  # Summing the number of names
+    
+    # Summing the flag counts
+    authority_author_count = sum(authority_author_count, na.rm = TRUE),
+    authority_year_count = sum(authority_year_count, na.rm = TRUE),
+    year_since_2000_count = sum(year_since_2000_count, na.rm = TRUE),
+    original_combination_total = sum(original_combination_total, na.rm = TRUE),
+    original_rank_count = sum(original_rank_count, na.rm = TRUE),
+    authority_citation_count = sum(authority_citation_count, na.rm = TRUE),
+    verified_authority_citation_count = sum(verified_authority_citation_count, na.rm = TRUE),
+    authority_page_count = sum(authority_page_count, na.rm = TRUE),
+    authority_link_count = sum(authority_link_count, na.rm = TRUE),
+    authority_page_link_count = sum(authority_page_link_count, na.rm = TRUE),
+    type_locality_count = sum(type_locality_count, na.rm = TRUE),
+    original_type_locality_count = sum(original_type_locality_count, na.rm = TRUE),
+    type_coordinates_count = sum(type_coordinates_count, na.rm = TRUE),
+    type_specimen_count = sum(type_specimen_count, na.rm = TRUE),
+    type_specimen_link_count = sum(type_specimen_link_count, na.rm = TRUE)
   )
 
-# Combine the summaries and total_synonyms
+# Combine the summaries (per status) and the new total_synonyms row into one dataframe
 nomenclature_summary_df <- bind_rows(val_nom_summary_df, total_synonyms)
 
-# Arrange columns in the desired order
+# Sort the dataframe alphabetically by status_type and status, keeping the Total row at the bottom
 nomenclature_summary_df <- nomenclature_summary_df %>%
-  select(status_type, status, everything())
+  arrange(status_type, status) %>%
+  arrange(factor(status, levels = c(setdiff(unique(status), "total_synonyms"), "total_synonyms")))
 
 # View final nomenclature summary dataframe
 print(nomenclature_summary_df)
 
-# Saving the nomenclature summary as a CSV file
+# Save the final CSV
 write.csv(nomenclature_summary_df, "supplementary_files\\nomenclature_data_summary.csv", row.names = FALSE)
 
-######Table 1 MDD Comparison ######
+
+######Nomenclature In Text Table######
+
+# Creating a table to visualize the nomenclatural data from the synonym sheet
+
+# Load libraries
+#library(dplyr)
+#library(gt)
+
+# Update the nomenclature status labels
+nomenclature_summary_df_edit <- nomenclature_summary_df %>%
+  mutate(
+    status = case_when(
+      status == "as_emended" ~ "Emended Available Names",
+      status == "available" ~ "Available Names",
+      status == "before_1758" ~ "Described Before 1758",
+      status == "conditional" ~ "Conditional Names",
+      status == "fully_suppressed" ~ "Fully Suppressed Names",
+      status == "hybrid_as_such" ~ "Hybrid as Such Names",
+      status == "hypothetical_concept" ~ "Based on Hypothetical Concept",
+      status == "inconsistently_binominal" ~ "Inconsistently Binominal Names",
+      status == "incorrect_original_spelling" ~ "Incorrect Original Spellings",
+      status == "incorrect_subsequent_spelling" ~ "Incorrect Subsequent Spellings",
+      status == "infrasubspecific" ~ "Infrasubspecific Names",
+      status == "justified_emendation" ~ "Justified Emendations",
+      status == "mandatory_change" ~ "Mandatory Changes",
+      status == "misidentification" ~ "Misidentified Names",
+      status == "name_combination" ~ "Name Combinations",
+      status == "no_type_specified" ~ "No Type Specified Names",
+      status == "nomen_novum" ~ "Nomena Nova",
+      status == "nomen_nudum" ~ "Nomena Nuda",
+      status == "not_explicitly_new" ~ "Not Explicitly New Names",
+      status == "not_intended_as_a_scientific_name" ~ "Not Intended as Scientific Names",
+      status == "not_published_with_a_generic_name" ~ "Published Without Genus Names",
+      status == "not_used_as_valid" ~ "Names Not Used as Valid",
+      status == "partially_suppressed" ~ "Partially Suppressed Names",
+      status == "preoccupied" ~ "Preoccupied Names",
+      status == "rejected_by_fiat" ~ "Rejected Names",
+      status == "subsequent_usage" ~ "Subsequent Usages of Names",
+      status == "unjustified_emendation" ~ "Unjustified Emendations",
+      status == "unpublished" ~ "Unpublished Names",
+      status == "unpublished_electronic" ~ "Electronic Unpublished Names",
+      status == "unpublished_pending" ~ "Unpublished Names Pending Description",
+      status == "unpublished_supplement" ~ "Supplemental Unpublished Names",
+      status == "unpublished_thesis" ~ "Thesis Unpublished Names",
+      status == "variant" ~ "Unassigned Spelling Variant",
+      status == "variety_or_form" ~ "Variety or Form Name",
+      status == "composite" ~ "Composite Type Material",
+      status == "hybrid" ~ "Hybrid Type Material",
+      status == "nomen_dubium" ~ "Nomena Dubia",
+      status == "species" ~ "Valid Species",
+      status == "species_inquirenda" ~ "Species Inquirendae",
+      status == "synonym" ~ "Synonymous Names",
+      status == "total_synonyms" ~ "Total Names",
+      TRUE ~ status  # Preserve all other statuses unchanged
+    )
+  )
+
+# Creating a publication-friendly table with 'gt'
+nomenclature_summary_gt <- nomenclature_summary_df_edit %>%
+  # Rename columns for readability
+  rename(
+    `Status Type` = status_type,
+    `Status` = status,
+    `Total Names` = total_names,
+    `Authority Author Count` = authority_author_count,
+    `Authority Year Count` = authority_year_count,
+    `Names Since 2000` = year_since_2000_count,
+    `Original Combination Total` = original_combination_total,
+    `Original Rank Count` = original_rank_count,
+    `Authority Citation Count` = authority_citation_count,
+    `Verified Authority Citation Count` = verified_authority_citation_count,
+    `Authority Page Count` = authority_page_count,
+    `Authority Link Count` = authority_link_count,
+    `Authority Page Link Count` = authority_page_link_count,
+    `Type Locality Count` = type_locality_count,
+    `Original Type Locality Count` = original_type_locality_count,
+    `Type Coordinates Count` = type_coordinates_count,
+    `Type Specimen Count` = type_specimen_count,
+    `Type Specimen Link Count` = type_specimen_link_count
+  ) %>%
+  gt(groupname_col = "Status Type") %>%  # Use 'Status Type' as a header row
+  fmt_number(
+    columns = vars(`Total Names`, `Authority Author Count`, `Authority Year Count`, `Names Since 2000`, 
+                   `Original Combination Total`, `Original Rank Count`, `Authority Citation Count`, 
+                   `Verified Authority Citation Count`, `Authority Page Count`, `Authority Link Count`, 
+                   `Authority Page Link Count`, `Type Locality Count`, `Original Type Locality Count`, 
+                   `Type Coordinates Count`, `Type Specimen Count`, `Type Specimen Link Count`),
+    decimals = 0
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", style = "italic"),
+    locations = cells_body(columns = "Status")
+  ) %>%
+  tab_options(
+    table.font.names = "Helvetica",
+    table.border.top.style = "solid",
+    table.border.bottom.style = "solid",
+    table.border.top.color = "black",
+    table.border.bottom.color = "black",
+    table.font.size = 12
+  ) %>%
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) %>%
+  cols_width(
+    everything() ~ px(120)
+  )
+
+# View the table
+print(nomenclature_summary_gt)
+
+# Save the table as an HTML file
+gtsave(nomenclature_summary_gt, "tables/nomenclature_summary_gt.html")
+
+
+######MDD Version Comparisons ######
 
 # Summarizing the differences between the various MDD versions
 # Must already have the taxonomic_summary_df supplement table loaded
@@ -655,6 +885,34 @@ diff_files <- list(
   "MDD1.13" = read_csv("https://zenodo.org/records/12738010/files/Diff_v1.12.1-v1.13.csv?download=1", locale = locale(encoding = "UTF-8")),
   "MDD2.0" = read_csv("base_files\\MDD_v2.0\\MDD_v2.0\\Diff_v1.13-v2.0.csv", locale = locale(encoding = "UTF-8"))
 )
+
+# Saving the versions and diff files for supplementary file use
+
+# Define the paths for the new folders inside the base folder
+all_mdd_versions <- file.path("supplementary_files//all_mdd_versions")
+all_mdd_diff_files <- file.path("supplementary_files//all_mdd_diff_files")
+
+# Create folders if they don't exist
+if (!dir.exists(all_mdd_versions)) {
+  dir.create(all_mdd_versions, recursive = TRUE)
+}
+if (!dir.exists(all_mdd_diff_files)) {
+  dir.create(all_mdd_diff_files, recursive = TRUE)
+}
+
+# Save files in 'earlier_mdd_versions' folder with '_species_list' suffix
+for (version in names(mdd_versions)) {
+  file_path <- file.path(all_mdd_versions, paste0(version, "_species_list.csv"))
+  write.csv(mdd_versions[[version]], file = file_path, row.names = FALSE)
+}
+
+# Save files in 'mdd_versions_diff_files' folder with '_diff_file' suffix
+for (diff_version in names(diff_files)) {
+  file_path <- file.path(all_mdd_diff_files, paste0(diff_version, "_diff_file.csv"))
+  write.csv(diff_files[[diff_version]], file = file_path, row.names = FALSE)
+}
+
+# Creating the Graph
 
 # Define a function to summarize various counts for each MDD version
 summarize_mdd_version <- function(data, version) {
@@ -787,6 +1045,8 @@ calculated_diff_counts[["MDD1.3.1"]] <- c(de_novo = 0, split = 0, lump = 0)
 
 # Add these counts to the version comparison dataframe
 version_comparison_df[["MDD1.1"]][5:7] <- calculated_diff_counts[["MDD1.1"]]
+version_comparison_df[["MDD1.2"]][5:7] <- calculated_diff_counts[["MDD1.2"]]
+version_comparison_df[["MDD1.3.1"]][5:7] <- calculated_diff_counts[["MDD1.3.1"]]
 
 # Add the data from the taxonomic_summary_df for the MDD 2.0 column
 version_comparison_df[["MDD2.0"]] <- c(
@@ -874,7 +1134,7 @@ mdd_version_comparison_table
 gtsave(mdd_version_comparison_table, "tables\\mdd_version_comparison_table.html")
 
 
-######Table 2 Compendia Comparisons######
+######Compendia Comparisons######
 
 # Making a table to summarize the difference between major mammal compendia and the MDD
 # This section builds from the Table 1 section
@@ -900,8 +1160,14 @@ comparison_table_2 <- data.frame(
     "Families",
     "Orders"
   ),
+  Corbet_Hill_1980 = c(
+    4007, NA, NA, NA, 1014, 129, 21 # Corbet and Hill 1980 values
+  ),
   MSW1_1982 = c(
     4170, NA, NA, NA, 1033, 135, 20  # MSW1 values
+  ),
+  Corbet_Hill_1991 = c(
+    4336, NA, NA, NA, 1066, 131, 21 # Corbet and Hill 1991 values
   ),
   MSW2_1993 = c(
     4631, NA, NA, NA, 1135, 132, 26  # MSW2 values
@@ -914,6 +1180,9 @@ comparison_table_2 <- data.frame(
   ),
   CMW_2020 = c(
     6554, 6451, 103, 20, 1343, 167, 27  # CMW 2020 values
+  ),
+  IUCN_2024 = c(
+    5983, 5899, 84, 0, 1308, 164, 27 # IUCN 2024 values
   ),
   MDD2_0 = c(
     6753, 6629, 113, 17, 1353, 167, 27  # MDD2.0 values taken from the first table
@@ -929,11 +1198,14 @@ mdd_compendia_table <- comparison_table_2 %>%
   ) %>%
   # Create custom column labels with years
   cols_label(
+    Corbet_Hill_1980 = md("**C&H1**<br>1980"),
     MSW1_1982 = md("**MSW1**<br>1982"),
+    Corbet_Hill_1991 = md("**C&H3**<br>1991"),
     MSW2_1993 = md("**MSW2**<br>1993"),
     MSW3_2005 = md("**MSW3**<br>2005"),
     MDD1_0 = md("**MDD1.0**<br>2018"),
     CMW_2020 = md("**CMW**<br>2020"),
+    IUCN_2024 = md("**IUCN**<br>2024"),
     MDD2_0 = md("**MDD2.0**<br>2024")
   ) %>%
   tab_style(
@@ -965,13 +1237,32 @@ mdd_compendia_table <- comparison_table_2 %>%
   # Set the font for the entire table to Helvetica
   tab_options(
     table.font.names = "Helvetica"
-  ) %>%
-  # Add a footnote for the species total in MSW2
+  )
+
+# Add footnotes sequentially to avoid conflicts
+mdd_compendia_table <- mdd_compendia_table %>%
+  # Footnote 1: for species total in MSW2
   tab_footnote(
     footnote = "Corrected total per Solari and Baker (2007)",
     locations = cells_body(
       columns = MSW2_1993,
       rows = Taxa == "Species"
+    )
+  ) %>%
+  # Footnote 2: for IUCN wild species totals
+  tab_footnote(
+    footnote = "Includes 1 species classified as Extinct in the Wild and does not include humans",
+    locations = cells_body(
+      columns = IUCN_2024,
+      rows = Taxa == "  Wild Extant"
+    )
+  ) %>%
+  # Footnote 3: for IUCN domestic species totals
+  tab_footnote(
+    footnote = "The IUCN does not assess domestic species",
+    locations = cells_body(
+      columns = IUCN_2024,
+      rows = Taxa == "  Domestic"
     )
   )
 
@@ -996,13 +1287,15 @@ gtsave(mdd_compendia_table, "tables\\mdd_compendia_table.html")
 #synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
 
 # Filter the dataframe for relevant nomenclature statuses and years after 1757
-synonym_since_1758_data <- synonyms_df %>%
+synonym_since_1758_data <- synonyms_df_cleaned %>%
   filter(MDD_year > 1757, 
-         MDD_nomenclature_status %in% c("available", "as_emended", "preoccupied", "nomen_novum", "fully_suppressed", "partially_suppressed"))
+         MDD_nomenclature_status %in% c("available", "as_emended", "preoccupied", "nomen_novum", "fully_suppressed", "partially_suppressed")) %>%
+           mutate(MDD_year = as.numeric(MDD_year))
 
 # Create a subset of the filtered data where validity is exactly "species"
 species_year_data <- synonym_since_1758_data %>%
-  filter(MDD_validity == "species")
+  filter(MDD_validity == "species") %>%
+  mutate(MDD_year = as.numeric(MDD_year))
 
 # Create a subset for 'Lumps': originally species but now synonyms
 lumps_data <- synonym_since_1758_data %>%
@@ -1011,6 +1304,10 @@ lumps_data <- synonym_since_1758_data %>%
 # Create a subset for 'Splits': originally synonym/subspecies/form/variety but now species
 splits_data <- synonym_since_1758_data %>%
   filter(MDD_original_rank %in% c("synonym", "subspecies", "form", "variety"), MDD_validity == "species")
+
+# Create a subset for 'Described as Subspecies': originally subspecies 
+subspecies_data <- synonym_since_1758_data %>%
+  filter(MDD_original_rank %in% c("subspecies", "form", "variety"))
 
 # Calculate total names and species names per year
 names_per_year <- synonym_since_1758_data %>%
@@ -1021,6 +1318,11 @@ species_per_year <- species_year_data %>%
   group_by(MDD_year) %>%
   summarise(species_count = n())
 
+# Calculate counts of subspecies descriptions per year
+subspecies_per_year <- subspecies_data %>%
+  group_by(MDD_year) %>%
+  summarise(subspecies_count = n())
+
 # Calculate counts of lumps and splits per year
 lumps_per_year <- lumps_data %>%
   group_by(MDD_year) %>%
@@ -1030,46 +1332,61 @@ splits_per_year <- splits_data %>%
   group_by(MDD_year) %>%
   summarise(splits_count = n())
 
-# Calculate the percentage of species, lumps, and splits per year and join with names_per_year
+# Calculate the percentage of species, lumps, splits, and subspecies per year and join with names_per_year
 percent_species_per_year <- names_per_year %>%
   left_join(species_per_year, by = "MDD_year") %>%
   left_join(lumps_per_year, by = "MDD_year") %>%
   left_join(splits_per_year, by = "MDD_year") %>%
+  left_join(subspecies_per_year, by = "MDD_year") %>%
   mutate(
-    species_count = coalesce(species_count, 0),  # Fill missing species counts with 0
-    lumps_count = coalesce(lumps_count, 0),      # Fill missing lumps counts with 0
-    splits_count = coalesce(splits_count, 0),    # Fill missing splits counts with 0
+    species_count = coalesce(species_count, 0),
+    lumps_count = coalesce(lumps_count, 0), 
+    splits_count = coalesce(splits_count, 0),
+    subspecies_count = coalesce(subspecies_count, 0),
     percent_species = (species_count / total_names) * 100,
     percent_lumps = (lumps_count / total_names) * 100,
-    percent_splits = (splits_count / total_names) * 100
+    percent_splits = (splits_count / total_names) * 100,
+    percent_subspecies = (subspecies_count / total_names) * 100
   )
 
-# Smooth the percent_species, percent_lumps, and percent_splits using a 10-year rolling mean
+# Smooth the percent_species, percent_lumps, percent_splits, and percent_subspecies using a 10-year rolling mean
 percent_species_per_year <- percent_species_per_year %>%
   arrange(MDD_year) %>%
   mutate(
     smoothed_percent_species = rollmean(percent_species, 10, fill = NA, align = "right"),
     smoothed_percent_lumps = rollmean(percent_lumps, 10, fill = NA, align = "right"),
-    smoothed_percent_splits = rollmean(percent_splits, 10, fill = NA, align = "right")  # Fix here
+    smoothed_percent_splits = rollmean(percent_splits, 10, fill = NA, align = "right"),
+    smoothed_percent_subspecies = rollmean(percent_subspecies, 10, fill = NA, align = "right")
   )
 
 # Create the histogram with outlines and overlay the smoothed line graph with combined legends
 names_over_time_plot <- ggplot() +
   geom_histogram(data = synonym_since_1758_data, aes(x = MDD_year, fill = "Available Names"), color = "black", binwidth = 1, alpha = 0.6) +
   geom_histogram(data = species_year_data, aes(x = MDD_year, fill = "Currently Valid Species"), color = "black", binwidth = 1, alpha = 0.6) +
-  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_species * max(names_per_year$total_names) / 100, color = "Described as Species"), size = 1) +
+  
+  # Add a white outline (hollow effect) around each line
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_species * max(names_per_year$total_names) / 100), size = 1.75, color = "white") +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_lumps * max(names_per_year$total_names) / 100), size = 1.75, color = "white") +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_splits * max(names_per_year$total_names) / 100), size = 1.75, color = "white") +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_subspecies * max(names_per_year$total_names) / 100), size = 1.75, color = "white") +
+  
+  # Add the colored lines on top
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_species * max(names_per_year$total_names) / 100, color = "Names Described as Species"), size = 1) +
   geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_lumps * max(names_per_year$total_names) / 100, color = "Species Lumped Since Description"), size = 1) +
   geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_splits * max(names_per_year$total_names) / 100, color = "Species Split Since Description"), size = 1) +
+  geom_line(data = percent_species_per_year, aes(x = MDD_year, y = smoothed_percent_subspecies * max(names_per_year$total_names) / 100, color = "Names Described as Subspecies"), size = 1) +
+  
   scale_y_continuous(
     name = "Total Names Described",
-    breaks = seq(0, max(names_per_year$total_names), by = 100),  # Set breaks at every 100
-    sec.axis = sec_axis(~ . / max(names_per_year$total_names) * 100, name = "Percent of Names")
+    breaks = seq(0, max(names_per_year$total_names), by = 100),
+    sec.axis = sec_axis(~ . / max(names_per_year$total_names) * 100, name = "Percentage of Names (10 Year Running Means)")
   ) +
   labs(x = "Year") +
   scale_fill_manual(values = c("Available Names" = "gray70", "Currently Valid Species" = "gray30")) +
-  scale_color_manual(values = c("Described as Species" = "blue3",
-                                "Species Lumped Since Description" = "orange2",
-                                "Species Split Since Description" = "red3")) + 
+  scale_color_manual(values = c("Names Described as Species" = "royalblue3",
+                                "Species Lumped Since Description" = "firebrick4",
+                                "Species Split Since Description" = "orangered",
+                                "Names Described as Subspecies" = "green4")) +
   theme(
     panel.background = element_rect(fill = "white", color = "gray90"),
     plot.background = element_rect(fill = "white", color = NA),
@@ -1081,9 +1398,15 @@ names_over_time_plot <- ggplot() +
     legend.spacing.x = unit(1, "cm"),
     legend.box.just = "left",
     legend.spacing.y = unit(0.2, "cm"),
-    legend.title = element_blank(),  # Remove legend titles
-    legend.background = element_rect(fill = alpha("white", 0.3), color = NA), 
-    legend.box.background = element_rect(fill = alpha("white", 0.3), color = NA)
+    legend.title = element_blank(),
+    legend.background = element_rect(fill = alpha("white", 0), color = NA), 
+    legend.box.background = element_rect(fill = alpha("white", 0), color = NA),
+    axis.title = element_text(size = 16),
+    axis.text = element_text(size = 16),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+    legend.text = element_text(size = 13),
+    plot.title = element_text(size = 16),
+    strip.text = element_text(size = 16)
   ) +
   
   # Custom guides for legends
@@ -1104,7 +1427,29 @@ ggsave("graphs\\names_over_time_graph.jpeg",
        units = "in", 
        dpi = 900)
 
-######Species by Major Region Graph######
+# Create valid_species_totals and available_name_totals columns and rename the year column
+names_per_year_summary_df <- percent_species_per_year %>%
+  mutate(
+    valid_species_totals = species_count,
+    available_name_totals = total_names,
+    smoothed_10_year_percent_species = smoothed_percent_species,
+    smoothed_10_year_percent_lumps = smoothed_percent_lumps,
+    smoothed_10_year_percent_splits = smoothed_percent_splits,
+    smoothed_10_year_percent_subspecies = smoothed_percent_subspecies
+  ) %>%
+  rename(year = MDD_year) %>%
+  select(year, valid_species_totals, available_name_totals,
+         smoothed_10_year_percent_species, smoothed_10_year_percent_lumps,
+         smoothed_10_year_percent_splits, smoothed_10_year_percent_subspecies)
+
+# View the summary dataframe
+print(names_per_year_summary_df)
+
+# Save the dataframe as a CSV file
+write.csv(names_per_year_summary_df, "supplementary_files/names_per_year_summary.csv", row.names = FALSE)
+
+
+######Species by Major Region Graphs######
 
 # Making a graph of species and available names per continent and biorealm
 # Need to have the geography_summary_df loaded 
@@ -1175,18 +1520,23 @@ continent_summary <- continent_summary %>%
          species_density = species_count / area)  # Calculate species density
 
 # Compute max species_density and species_count values for scaling
-max_species_count <- max(biogeographic_realm_summary$species_count)
+max_species_count_continent <- max(continent_summary$species_count)
 
 # Adjust the scaling so that species density aligns with species count, and ensure the desired axis limits (0-150)
-scaling_factor <- max_species_count / 150
+scaling_factor_continent <- max_species_count_continent / 150
+
+# Calculate scaling_factor based on max species_density and species_count
+max_species_density <- max(biogeographic_realm_summary$species_density, na.rm = TRUE)
+max_species_count <- max(biogeographic_realm_summary$species_count, na.rm = TRUE)
+scaling_factor <- max_species_count / max_species_density
 
 # Plot for Species Count by Biogeographic Realm
 species_biorealm_plot <- ggplot(biogeographic_realm_summary, aes(x = reorder(region_name, -species_count))) +
   geom_bar(aes(y = species_count, fill = "Total Species"), stat = "identity", color = "black", width = 0.7, position = "stack") +
   geom_bar(aes(y = split_species + new_descriptions, fill = "Split Species"), stat = "identity", color = "black", width = 0.7, position = "stack") +
   geom_bar(aes(y = new_descriptions, fill = "New Species Descriptions"), stat = "identity", color = "black", width = 0.7, position = "stack") +
-  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 3.5) +
-  geom_point(aes(y = species_density * scaling_factor), color = "red", size = 3) +
+  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 5) +
+  geom_point(aes(y = species_density * scaling_factor), color = "red", size = 5) +
   scale_y_continuous(
     name = "Species Count",
     sec.axis = sec_axis(~ . / scaling_factor, name = "Species Density (per million km^2)", 
@@ -1197,28 +1547,27 @@ species_biorealm_plot <- ggplot(biogeographic_realm_summary, aes(x = reorder(reg
                                "Split Species" = "darkgray", 
                                "New Species Descriptions" = "black"),
                     breaks = c("Total Species", "Split Species", "New Species Descriptions")) +
-  guides(fill = guide_legend(direction = "vertical")) +  # Align legend vertically
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
-        plot.title = element_blank(),
+  guides(fill = guide_legend(direction = "vertical")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        legend.key.size = unit(2, "lines"),
+        legend.title = element_blank(),
         legend.position = c(1, 1),
         legend.justification = c(1, 1),
-        legend.title = element_blank(),
-        legend.text = element_text(size = 14),
-        legend.key.size = unit(2, "lines"))
-
-# Compute max species_density and species_count values for scaling
-max_species_count_continent <- max(continent_summary$species_count)
-
-# Adjust the scaling so that species density aligns with species count, and ensure the desired axis limits (0-150)
-scaling_factor_continent <- max_species_count_continent / 150
+        legend.background = element_rect(fill = alpha("white", 0), color = NA),
+        legend.box.background = element_rect(fill = alpha("white", 0), color = NA),
+        plot.title = element_blank())
 
 # Plot for Species Count by Continent with Fixed Secondary Axis
 species_continent_plot <- ggplot(continent_summary, aes(x = reorder(region_name, -species_count))) +
   geom_bar(aes(y = species_count, fill = "Total Species"), stat = "identity", color = "black", width = 0.7) +
   geom_bar(aes(y = split_species + new_descriptions, fill = "Split Species"), stat = "identity", color = "black", width = 0.7) +
   geom_bar(aes(y = new_descriptions, fill = "New Species Descriptions"), stat = "identity", color = "black", width = 0.7) +
-  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 3.5) +
-  geom_point(aes(y = species_density * scaling_factor_continent), color = "red", size = 3) +
+  geom_text(aes(y = species_count, label = species_count), vjust = -0.5, size = 5) +
+  geom_point(aes(y = species_density * scaling_factor_continent), color = "red", size = 5) +
   scale_y_continuous(
     name = "Species Count",
     sec.axis = sec_axis(~ . / scaling_factor_continent, name = "Species Density (per million km^2)", 
@@ -1230,27 +1579,40 @@ species_continent_plot <- ggplot(continent_summary, aes(x = reorder(region_name,
                                "New Species Descriptions" = "black"),
                     breaks = c("Total Species", "Split Species", "New Species Descriptions")) +
   guides(fill = guide_legend(direction = "vertical")) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
-        plot.title = element_blank(),
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 15),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        legend.key.size = unit(2, "lines"),
+        legend.title = element_blank(),
         legend.position = c(1, 1),
         legend.justification = c(1, 1),
-        legend.title = element_blank(),
-        legend.text = element_text(size = 14),
-        legend.key.size = unit(2, "lines"))
+        legend.background = element_rect(fill = alpha("white", 0), color = NA),
+        legend.box.background = element_rect(fill = alpha("white", 0), color = NA),
+        plot.title = element_blank())
 
 # Plot for Available Names by Biogeographic Realm
 name_biorealm_plot <- ggplot(biogeographic_realm_summary, aes(x = reorder(region_name, -available_names), y = available_names)) +
   geom_bar(stat = "identity", fill = "gray70", color = "black", width = 0.7) +  
-  geom_text(aes(label = available_names), vjust = -0.5, size = 3.5) +  
+  geom_text(aes(label = available_names), vjust = -0.5, size = 5) +
   labs(x = "Terrestrial Biogeographic Realm", y = "Available Names") +  
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), plot.title = element_blank())
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        plot.title = element_blank())
 
 # Plot for Available Names by Continent
 name_continent_plot <- ggplot(continent_summary, aes(x = reorder(region_name, -available_names), y = available_names)) +
   geom_bar(stat = "identity", fill = "gray70", color = "black", width = 0.7) +  
-  geom_text(aes(label = available_names), vjust = -0.5, size = 3.5) +  
+  geom_text(aes(label = available_names), vjust = -0.5, size = 5) +
   labs(x = "Continent", y = "Available Names") +  
-  theme(axis.text.x = element_text(angle = 45, hjust = 1), plot.title = element_blank())
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+        axis.text.y = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        plot.title = element_blank())
 
 # Load the graphs
 species_biorealm_plot
@@ -1263,7 +1625,7 @@ ggsave("graphs/species_biorealm_plot.jpeg",
        plot = species_biorealm_plot,
        device = "jpeg", 
        width = 14, 
-       height = 7, 
+       height = 8, 
        units = "in", 
        dpi = 900)
 
@@ -1271,7 +1633,7 @@ ggsave("graphs/species_continent_plot.jpeg",
        plot = species_continent_plot,
        device = "jpeg", 
        width = 14, 
-       height = 7, 
+       height = 8, 
        units = "in", 
        dpi = 900)
 
@@ -1291,10 +1653,74 @@ ggsave("graphs/name_continent_plot.jpeg",
        units = "in", 
        dpi = 900)
 
+# Combining the four graphs into a single figure.
+
+#library(patchwork)
+
+# Modify the top-left graph (species_biorealm_plot)
+species_biorealm_plot_modified <- species_biorealm_plot + 
+  scale_y_continuous(
+    name = "Species Count",
+    sec.axis = sec_axis(~ . / scaling_factor, name = NULL)
+  ) +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y.right = element_blank(),
+    legend.position = "none"
+  )
+
+# Modify the top-right graph (species_continent_plot) to display only the right-side y-axis
+species_continent_plot_modified <- species_continent_plot + 
+  scale_y_continuous(
+    name = NULL,
+    sec.axis = sec_axis(~ . / scaling_factor_continent, name = "Species Density (per million km^2)")  # Add right-side y-axis label
+  ) +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y.left = element_blank(),
+    axis.text.y.left = element_text(size = 16),
+    axis.ticks.y.left = element_line(),
+    axis.text.y.right = element_text(size = 16),
+    axis.ticks.y.right = element_line()
+  )
+
+# Modify the bottom-left graph to include both x and y axes
+name_biorealm_plot_modified <- name_biorealm_plot + 
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.title.y = element_text(size = 16)
+  )
+
+# Modify the bottom-right graph to keep only the x-axis label
+name_continent_plot_modified <- name_continent_plot + 
+  theme(
+    axis.title.y = element_blank()
+  )
+
+# Combine the 2x2 arrangement with labels A), B), C), D)
+labeled_combined_plot <- (species_biorealm_plot_modified | species_continent_plot_modified) / 
+  (name_biorealm_plot_modified | name_continent_plot_modified)
+
+# Adjust tag size and add the labels A, B, C, D with larger size
+labeled_combined_plot <- labeled_combined_plot + 
+  plot_annotation(tag_levels = 'A') &
+  theme(
+    plot.tag = element_text(size = 24, face = "bold")
+  )
+
+# Save the labeled combined plot as a single JPEG file
+ggsave("graphs/combined_region_plots.jpeg", 
+       plot = labeled_combined_plot,
+       device = "jpeg", 
+       width = 14, 
+       height = 16,
+       units = "in", 
+       dpi = 900)
+
 # Creating a table to summarize the data presented in the above graphs
 
-library(dplyr)
-library(gt)
+#library(dplyr)
+#library(gt)
 
 # Combine Continent and Biogeographic Realm summaries into one table
 combined_summary_table <- bind_rows(
@@ -1364,7 +1790,7 @@ combined_summary_gt <- combined_summary_table %>%
 combined_summary_gt
 
 # Saving the table as an HTML
-gtsave(combined_summary_gt, "tables/region_summary_table.html")
+gtsave(combined_summary_gt, "tables/combined_summary_gt.html")
 
 
 ######Mapping Setup######
@@ -1485,8 +1911,8 @@ world_with_data <- world_with_data %>%
   select(-species_count.name)
 
 # Function to create individual maps with the original formatting
-create_map <- function(data, fill_var, fill_label, low_color, high_color, show_top_10_list = TRUE) {
-  top_10_countries <- data %>%
+create_map <- function(map_data, fill_var, fill_label, low_color, high_color, show_top_10_list = TRUE) {
+  top_10_countries <- map_data %>%
     arrange(desc(!!sym(fill_var))) %>%
     slice_head(n = 10) %>%
     mutate(rank = row_number(),
@@ -1500,11 +1926,11 @@ create_map <- function(data, fill_var, fill_label, low_color, high_color, show_t
     label = paste(country_labels$label, collapse = "\n"),
     x = unit(0.15, "npc"),
     y = unit(0.25, "npc"),
-    just = "left", gp = gpar(fontsize = 8, fontface = "bold", col = "black")
+    just = "left", gp = gpar(fontsize = 12, fontface = "bold", col = "black")
   )
   
-  map_plot <- ggplot(data) +
-    geom_sf(aes_string(fill = fill_var), color = "black") +  # General map borders remain
+  map_plot <- ggplot(map_data) +
+    geom_sf(aes_string(fill = fill_var), color = "black") +
     scale_fill_gradient(low = low_color, high = high_color, na.value = "gray90") +
     coord_sf(crs = "+proj=robin", expand = FALSE) +
     theme_minimal() +
@@ -1513,10 +1939,10 @@ create_map <- function(data, fill_var, fill_label, low_color, high_color, show_t
       legend.position = "bottom",
       legend.direction = "horizontal",
       legend.title = element_blank(),
-      legend.text = element_text(size = 10),
+      legend.text = element_text(size = 24),
       legend.key.width = unit(15, "cm"),
       legend.key.height = unit(0.5, "cm"),
-      plot.margin = margin(10, 10, 10, 10),
+      plot.margin = margin(15, 15, 15, 15),
       legend.box = "horizontal",
       legend.margin = margin(t = -10),
       axis.title = element_blank(),
@@ -1528,8 +1954,9 @@ create_map <- function(data, fill_var, fill_label, low_color, high_color, show_t
         title = fill_label,
         title.position = "top",
         title.hjust = 0,
-        barwidth = unit(15, "cm"),
-        barheight = unit(0.5, "cm")
+        title.theme = element_text(size = 36, face = "bold"),
+        barwidth = unit(35, "cm"),
+        barheight = unit(1.5, "cm")
       )
     )
   
@@ -1541,12 +1968,12 @@ create_map <- function(data, fill_var, fill_label, low_color, high_color, show_t
 }
 
 # Create and display each map
-map_total_species <- create_map(world_with_data, "species_count", "Total Species", "beige", "dodgerblue3", show_top_10_list = TRUE)
-map_new_species <- create_map(world_with_data, "new_since_MSW3", "Newly Recognized Species Since MSW3", "beige", "dodgerblue3", show_top_10_list = TRUE)
-map_threatened_species <- create_map(world_with_data, "threatened_percent", "Proportion of Threatened Species (NT, VU, EN, CR, EW)", "beige", "dodgerblue3", show_top_10_list = FALSE)
-map_data_deficient <- create_map(world_with_data, "data_deficient_percent", "Proportion of Understudied Species (DD, NE)", "beige", "dodgerblue3", show_top_10_list = FALSE)
-map_endemic_species <- create_map(world_with_data, "endemic_percent", "Proportion of Endemic Species", "beige", "dodgerblue3", show_top_10_list = FALSE)
-map_available_names <- create_map(world_with_data, "available_names", "Available Name Type Localities", "beige", "dodgerblue3", show_top_10_list = TRUE)
+map_total_species <- create_map(world_with_data, "species_count", "Total Species", "beige", "dodgerblue3", show_top_10_list = FALSE)
+map_new_species <- create_map(world_with_data, "new_since_MSW3", "Newly Recognized Species Since MSW3", "beige", "dodgerblue3", show_top_10_list = FALSE)
+map_threatened_species <- create_map(world_with_data, "threatened_percent", "Percentage of Threatened Species (VU, EN, CR, EW)", "beige", "dodgerblue3", show_top_10_list = FALSE)
+map_data_deficient <- create_map(world_with_data, "data_deficient_percent", "Percentage of Understudied Species (DD, NE)", "beige", "dodgerblue3", show_top_10_list = FALSE)
+map_endemic_species <- create_map(world_with_data, "endemic_percent", "Percentage of Endemic Species", "beige", "dodgerblue3", show_top_10_list = FALSE)
+map_available_names <- create_map(world_with_data, "available_names", "Available Name Type Localities", "beige", "dodgerblue3", show_top_10_list = FALSE)
 
 # Print the individual maps
 print(map_total_species)
@@ -1605,6 +2032,85 @@ ggsave(
   dpi = 300
 )
 
+# Creating a figure with all 6 maps together.
+
+# Load patchwork for combining plots
+library(patchwork)
+
+# Adjust the individual map plots and apply changes
+map_total_species_modified <- map_total_species + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+map_new_species_modified <- map_new_species + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+map_available_names_modified <- map_available_names + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+map_threatened_species_modified <- map_threatened_species + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+map_data_deficient_modified <- map_data_deficient + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+map_endemic_species_modified <- map_endemic_species + 
+  theme(
+    legend.position = "bottom",
+    legend.key.width = unit(10, "cm"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    legend.text = element_text(size = 32)
+  )
+
+# Combine the six maps into a single figure with 3 rows and 2 columns
+# Order: total species, new species, available names, threatened species, data deficient, endemic species
+combined_maps <- (map_total_species_modified + map_new_species_modified) / 
+  (map_available_names_modified + map_threatened_species_modified) / 
+  (map_data_deficient_modified + map_endemic_species_modified)
+
+# Adjust the layout and labels, and position labels in the top-left corner, but slightly to the right by 1/16
+# Using `tag_position` to control the exact label position
+combined_maps <- combined_maps + 
+  plot_annotation(tag_levels = 'A') &
+  theme(
+    plot.tag = element_text(size = 48, face = "bold"),
+    plot.tag.position = c(0.06, 0.95),
+    plot.margin = margin(t = 10, b = 10, l = 10, r = 10)
+  )
+
+# Save the combined figure as a single JPEG file
+ggsave(
+  filename = paste0("map_figures\\combined_maps_figure.jpg"),
+  plot = combined_maps,
+  device = "jpeg",
+  width = 40, height = 30, units = "in",
+  dpi = 600
+)
+
 
 ######New Since 2000 Type Locality Map######
 
@@ -1619,11 +2125,11 @@ ggsave(
 #library(grid)
 
 # Filter the synonyms_df dataframe for valid species described since 2000
-new_species_since_2000 <- synonyms_df %>%
+new_species_since_2000 <- synonyms_df_cleaned %>%
   filter(MDD_validity == "species" & MDD_year >= 2000)
 
 # Filter for synonyms or subspecies described after 2000
-non_species_since_2000 <- synonyms_df %>%
+non_species_since_2000 <- synonyms_df_cleaned %>%
   filter(MDD_validity != "species" & MDD_year >= 2000)
 
 # Summarize the MDD_type_country column and get ISO3 codes for matching
@@ -1702,10 +2208,10 @@ map_base <- ggplot(world_with_new_species) +
     legend.position = "bottom",
     legend.direction = "horizontal",
     legend.title = element_blank(),
-    legend.text = element_text(size = 10),
+    legend.text = element_text(size = 18),
     legend.key.width = unit(15, "cm"),
-    legend.key.height = unit(0.5, "cm"),
-    plot.margin = margin(10, 10, 10, 10),
+    legend.key.height = unit(0.75, "cm"),
+    plot.margin = margin(15, 15, 15, 15),
     axis.title = element_blank(),
     axis.text = element_blank(),
     axis.ticks = element_blank()
@@ -1715,18 +2221,19 @@ map_base <- ggplot(world_with_new_species) +
       title = "New Species Described Since 2000",
       title.position = "top",
       title.hjust = 0,
-      barwidth = unit(15, "cm"),
-      barheight = unit(0.5, "cm")
+      title.theme = element_text(size = 18, face = "bold"),
+      barwidth = unit(35, "cm"),
+      barheight = unit(0.75, "cm")
     )
   )
 
 # Create the point legend separately using grobs
 point_legend_grob <- grobTree(
-  textGrob("Type Localities", x = unit(0.1, "npc"), y = unit(0.3, "npc"), hjust = 0, gp = gpar(fontsize = 10, fontface = "bold")),
-  pointsGrob(x = unit(0.1, "npc"), y = unit(0.2, "npc"), pch = 19, gp = gpar(col = "red", fontsize = 10)),
-  textGrob("Valid Species", x = unit(0.2, "npc"), y = unit(0.2, "npc"), hjust = 0, gp = gpar(fontsize = 9)),
-  pointsGrob(x = unit(0.1, "npc"), y = unit(0.1, "npc"), pch = 18, gp = gpar(col = "blue", fontsize = 10)),
-  textGrob("Synonyms/Subspecies", x = unit(0.2, "npc"), y = unit(0.1, "npc"), hjust = 0, gp = gpar(fontsize = 9))
+  textGrob("Type Localities", x = unit(0.1, "npc"), y = unit(0.3, "npc"), hjust = 0, gp = gpar(fontsize = 16, fontface = "bold")),
+  pointsGrob(x = unit(0.1, "npc"), y = unit(0.2, "npc"), pch = 19, gp = gpar(col = "red", fontsize = 14)),
+  textGrob("Valid Species", x = unit(0.2, "npc"), y = unit(0.2, "npc"), hjust = 0, gp = gpar(fontsize = 14)),
+  pointsGrob(x = unit(0.1, "npc"), y = unit(0.1, "npc"), pch = 18, gp = gpar(col = "blue", fontsize = 14)),
+  textGrob("Synonyms/Subspecies", x = unit(0.2, "npc"), y = unit(0.1, "npc"), hjust = 0, gp = gpar(fontsize = 14))
 )
 
 # Combine the map and point legend using annotation_custom
@@ -1775,11 +2282,11 @@ map_us_states_species <- plot_usmap(data = plot_data, values = "species_count", 
   theme(
     legend.position = "bottom",
     legend.direction = "horizontal",
-    legend.title = element_text(size = 12, face = "bold", hjust = 0),
-    legend.text = element_text(size = 10),
+    legend.title = element_text(size = 16, face = "bold", hjust = 0),
+    legend.text = element_text(size = 16),
     legend.key.width = unit(15, "cm"),
     legend.key.height = unit(0.5, "cm"),
-    plot.margin = margin(10, 10, 20, 10),
+    plot.margin = margin(15, 15, 25, 15),
     axis.title = element_blank(),
     axis.text = element_blank(),
     axis.ticks = element_blank(),
@@ -1789,8 +2296,9 @@ map_us_states_species <- plot_usmap(data = plot_data, values = "species_count", 
     fill = guide_colorbar(
       title.position = "top",
       title.hjust = 0,
-      barwidth = unit(15, "cm"),
-      barheight = unit(0.5, "cm")
+      title.theme = element_text(size = 18, face = "bold"),
+      barwidth = unit(35, "cm"),
+      barheight = unit(1.5, "cm")
     )
   )
 
@@ -1818,12 +2326,11 @@ ggsave(
 #library(stringr)
 #library(purrr)
 
-# Load the synonym and museum metadata sheets from excel files
-#synonyms_df <- read.csv("base_files\\MDD_v2.0\\MDD_v2.0\\Species_Syn_v2.0.csv")
+# Load the synonym (cleaned) and museum metadata sheets from excel files
 #museums_metadata <- read_excel("base_files\\museums_metadata.xlsx")
 
 # Remove nomen_novum to avoid repeated types for multiple names
-filtered_synonyms <- synonyms_df %>%
+filtered_synonyms <- synonyms_df_cleaned %>%
   filter(MDD_nomenclature_status != "nomen_novum")
 
 # Extract known institution labels from the collection dataset
