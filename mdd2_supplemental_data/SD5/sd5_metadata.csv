@@ -1,0 +1,7 @@
+﻿File,Columns,Explanation
+mdd1_mdd2_diff_file,,Species level taxonomic differences between MDD version 1.0 and MDD version 2.0.
+,MDDv1.0_name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv2.0_name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comments,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,References,any references used to justify the given change

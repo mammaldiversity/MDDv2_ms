@@ -1,0 +1,26 @@
+﻿File,Columns,Explanation
+geographic_data_summary,,"Summary of total taxonomic and nomenclatural data on MDD2 per geographic region, including all biogeographic realms, continents, continent subregions, countries and offshore territories, and country subregions listed in the MDD2 species distributions and synonym type localities."
+,region_category,"the type of geographic region listed in the 'region_name' category for each row, including Earth, Continent, Continent Subregion, Biogeographic Realm, Country, Offshore Region, Country Subregion"
+,region_name,the standard American English name for each region
+,higher_country,the country governing the country subregion or offshore region in each row; listed as NA if the row is represented by a higher region rank than country
+,higher_continent,the continent including the region in each row; listed as NA if the row is represented by a higher region rank than continent
+,higher_biogeographic_realm,the biogeographic realm including the region in each row; listed as NA if the row is represented by a higher region rank than biogeographic realm
+,available_names,"the total available name (including preoccupied, replacement, and suppressed names) type localities per geographic region"
+,species_count,total species recognized on the MDD2 distributed within each geographic region
+,possible_species_count,"total species recognized on the MDD2 possibly distributed within each geographic region (marked with a question mark ""?"" next to the region in the applicable species distribution column)"
+,extinct_species_count,total extinct species recognized on the MDD2 distributed within each geographic region
+,living_species_count,total extant species recognized on the MDD2 distributed within each geographic region
+,new_since_MSW3,"total newly recognized species (both split and de novo since MSW3) recognized on the MDD2 possibly distributed within each geographic region (marked with a question mark ""?"" next to the region in the applicable species distribution column)"
+,new_descriptions_since_MSW3,"total newly described species (only de novo species since MSW3) recognized on the MDD2 possibly distributed within each geographic region (marked with a question mark ""?"" next to the region in the applicable species distribution column)"
+,endemic_species,total species recognized on the MDD2 distributed within only the given geographic region
+,IUCN_LC_species,total MDD2 species classified as Least Concern on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_NT_species,total MDD2 species classified as Near Threatened on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_VU_species,total MDD2 species classified as Vulnerable on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_EN_species,total MDD2 species classified as Endangered on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_CR_species,total MDD2 species classified as Critically Endangered on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_EW_species,total MDD2 species classified as Extinct in the Wild on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_EX_species,total MDD2 species classified as Extinct on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_DD_species,total MDD2 species classified as Data Deficient on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_NE_species,total MDD2 species classified Not Evaluated on the IUCN Red List version 2024-1 distributed within each geographic region
+,IUCN_threatened_total,"total MDD2 species classified as either Vulnerable, Endangered, Critically Endangered, or Extinct in the Wild on the IUCN Red List version 2024-1 distributed within each geographic region"
+,IUCN_understudied_total,total MDD2 species classified as either Data Deficient or Not Evaluated on the IUCN Red List version 2024-1 distributed within each geographic region

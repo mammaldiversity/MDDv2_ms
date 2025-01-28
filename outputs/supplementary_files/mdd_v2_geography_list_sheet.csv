@@ -1,0 +1,886 @@
+"Category","Region","MDD_species_distribution_country","MDD_type_locality_country","MDD_type_locality_subregion","Governing_country","Higher_continent","Higher_biorealm","ISSO_3166-1_A-2_Code","ISSO_3166-1_A-3_Code","ISSO 3166-1 Numeric Code","ISSO_english_name"
+"Continent Subregion [type localities only]","Eastern Africa","Africa","Africa","Eastern Africa","NA","Africa","Afrotropic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Middle Africa","Africa","Africa","Middle Africa","NA","Africa","Afrotropic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Western Africa","Africa","Africa","Western Africa","NA","Africa","Afrotropic",NA,NA,NA,NA
+"Country","Angola","Angola","Angola","NA","Angola","Africa","Afrotropic","ao","ago",24,"Angola"
+"Country","Benin","Benin","Benin","NA","Benin","Africa","Afrotropic","bj","ben",204,"Benin"
+"Country","Botswana","Botswana","Botswana","NA","Botswana","Africa","Afrotropic","bw","bwa",72,"Botswana"
+"Country","Burkina Faso","Burkina Faso","Burkina Faso","NA","Burkina Faso","Africa","Afrotropic","bf","bfa",854,"Burkina Faso"
+"Country","Burundi","Burundi","Burundi","NA","Burundi","Africa","Afrotropic","bi","bdi",108,"Burundi"
+"Country","Cameroon","Cameroon","Cameroon","NA","Cameroon","Africa","Afrotropic","cm","cmr",120,"Cameroon"
+"Country","Cape Verde","Cape Verde","Cape Verde","NA","Cape Verde","Africa","Afrotropic","cv","cpv",132,"Cabo Verde"
+"Country","Central African Republic","Central African Republic","Central African Republic","NA","Central African Republic","Africa","Afrotropic","cf","caf",140,"Central African Republic"
+"Country","Chad","Chad","Chad","NA","Chad","Africa","Afrotropic","td","tcd",148,"Chad"
+"Country","Comoros","Comoros","Comoros","NA","Comoros","Africa","Afrotropic","km","com",174,"Comoros"
+"Country","Cote d'Ivoire","Cote d'Ivoire","Cote d'Ivoire","NA","Cote d'Ivoire","Africa","Afrotropic","ci","civ",384,"Côte d'Ivoire"
+"Country","Democratic Republic of the Congo","Democratic Republic of the Congo","Democratic Republic of the Congo","NA","Democratic Republic of the Congo","Africa","Afrotropic","cd","cod",180,"Congo, Democratic Republic of the"
+"Country","Djibouti","Djibouti","Djibouti","NA","Djibouti","Africa","Afrotropic","dj","dji",262,"Djibouti"
+"Country","Equatorial Guinea","Equatorial Guinea","Equatorial Guinea","NA","Equatorial Guinea","Africa","Afrotropic","gq","gnq",226,"Equatorial Guinea"
+"Country","Eritrea","Eritrea","Eritrea","NA","Eritrea","Africa","Afrotropic","er","eri",232,"Eritrea"
+"Country","Eswatini","Eswatini","Eswatini","NA","Eswatini","Africa","Afrotropic","sz","swz",748,"Eswatini"
+"Country","Ethiopia","Ethiopia","Ethiopia","NA","Ethiopia","Africa","Afrotropic","et","eth",231,"Ethiopia"
+"Country","Gabon","Gabon","Gabon","NA","Gabon","Africa","Afrotropic","ga","gab",266,"Gabon"
+"Country","Gambia","Gambia","Gambia","NA","Gambia","Africa","Afrotropic","gm","gmb",270,"Gambia"
+"Country","Ghana","Ghana","Ghana","NA","Ghana","Africa","Afrotropic","gh","gha",288,"Ghana"
+"Country","Guinea","Guinea","Guinea","NA","Guinea","Africa","Afrotropic","gn","gin",324,"Guinea"
+"Country","Guinea-Bissau","Guinea-Bissau","Guinea-Bissau","NA","Guinea-Bissau","Africa","Afrotropic","gw","gnb",624,"Guinea-Bissau"
+"Country","Kenya","Kenya","Kenya","NA","Kenya","Africa","Afrotropic","ke","ken",404,"Kenya"
+"Country","Lesotho","Lesotho","Lesotho","NA","Lesotho","Africa","Afrotropic","ls","lso",426,"Lesotho"
+"Country","Liberia","Liberia","Liberia","NA","Liberia","Africa","Afrotropic","lr","lbr",430,"Liberia"
+"Country","Madagascar","Madagascar","Madagascar","NA","Madagascar","Africa","Afrotropic","mg","mdg",450,"Madagascar"
+"Country","Malawi","Malawi","Malawi","NA","Malawi","Africa","Afrotropic","mw","mwi",454,"Malawi"
+"Country","Mali","Mali","Mali","NA","Mali","Africa","Afrotropic","ml","mli",466,"Mali"
+"Country","Mauritania","Mauritania","Mauritania","NA","Mauritania","Africa","Afrotropic","mr","mrt",478,"Mauritania"
+"Country","Mauritius","Mauritius","Mauritius","NA","Mauritius","Africa","Afrotropic","mu","mus",480,"Mauritius"
+"Country","Mozambique","Mozambique","Mozambique","NA","Mozambique","Africa","Afrotropic","mz","moz",508,"Mozambique"
+"Country","Namibia","Namibia","Namibia","NA","Namibia","Africa","Afrotropic","na","nam",516,"Namibia"
+"Country","Niger","Niger","Niger","NA","Niger","Africa","Afrotropic","ne","ner",562,"Niger"
+"Country","Nigeria","Nigeria","Nigeria","NA","Nigeria","Africa","Afrotropic","ng","nga",566,"Nigeria"
+"Country","Republic of the Congo","Republic of the Congo","Republic of the Congo","NA","Republic of the Congo","Africa","Afrotropic","cg","cog",178,"Congo"
+"Country","Rwanda","Rwanda","Rwanda","NA","Rwanda","Africa","Afrotropic","rw","rwa",646,"Rwanda"
+"Country","São Tomé and Príncipe","São Tomé and Príncipe","São Tomé and Príncipe","NA","São Tomé and Príncipe","Africa","Afrotropic","st","stp",678,"Sao Tome and Principe"
+"Country","Senegal","Senegal","Senegal","NA","Senegal","Africa","Afrotropic","sn","sen",686,"Senegal"
+"Country","Seychelles","Seychelles","Seychelles","NA","Seychelles","Africa","Afrotropic","sc","syc",690,"Seychelles"
+"Country","Sierra Leone","Sierra Leone","Sierra Leone","NA","Sierra Leone","Africa","Afrotropic","sl","sle",694,"Sierra Leone"
+"Country","Somalia","Somalia","Somalia","NA","Somalia","Africa","Afrotropic","so","som",706,"Somalia"
+"Country","South Africa","South Africa","South Africa","NA","South Africa","Africa","Afrotropic","za","zaf",710,"South Africa"
+"Country","South Sudan","South Sudan","South Sudan","NA","South Sudan","Africa","Afrotropic","ss","ssd",728,"South Sudan"
+"Country","Sudan","Sudan","Sudan","NA","Sudan","Africa","Afrotropic","sd","sdn",729,"Sudan"
+"Country","Tanzania","Tanzania","Tanzania","NA","Tanzania","Africa","Afrotropic","tz","tza",834,"Tanzania, United Republic of"
+"Country","Togo","Togo","Togo","NA","Togo","Africa","Afrotropic","tg","tgo",768,"Togo"
+"Country","Uganda","Uganda","Uganda","NA","Uganda","Africa","Afrotropic","ug","uga",800,"Uganda"
+"Country","Zambia","Zambia","Zambia","NA","Zambia","Africa","Afrotropic","zm","zmb",894,"Zambia"
+"Country","Zimbabwe","Zimbabwe","Zimbabwe","NA","Zimbabwe","Africa","Afrotropic","zw","zwe",716,"Zimbabwe"
+"Country Subregion","Aldabra","Seychelles","Seychelles","Aldabra","Seychelles","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Anjouan","Comoros","Comoros","Anjouan","Comoros","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Annobón","Equatorial Guinea","Equatorial Guinea","Annobón","Equatorial Guinea","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Bioko","Equatorial Guinea","Equatorial Guinea","Bioko","Equatorial Guinea","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Eastern Cape","South Africa","South Africa","Eastern Cape","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Free State","South Africa","South Africa","Free State","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Gauteng","South Africa","South Africa","Gauteng","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Grande Comore","Comoros","Comoros","Grande Comore","Comoros","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","KwaZulu-Natal","South Africa","South Africa","KwaZulu-Natal","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Limpopo","South Africa","South Africa","Limpopo","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Mahé","Seychelles","Seychelles","Mahé","Seychelles","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Mpumalanga","South Africa","South Africa","Mpumalanga","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","North West (South Africa)","South Africa","South Africa","North West (South Africa)","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Northern Cape","South Africa","South Africa","Northern Cape","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Príncipe","São Tomé and Príncipe","São Tomé and Príncipe","Príncipe","São Tomé and Príncipe","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Río Muni","Equatorial Guinea","Equatorial Guinea","Río Muni","Equatorial Guinea","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Rodrigues","Mauritius","Mauritius","Rodrigues","Mauritius","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","São Tomé","São Tomé and Príncipe","São Tomé and Príncipe","São Tomé","São Tomé and Príncipe","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Silhouette Island","Seychelles","Seychelles","Silhouette Island","Seychelles","Africa","Afrotropic",NA,NA,NA,NA
+"Country Subregion","Western Cape","South Africa","South Africa","Western Cape","South Africa","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region","Ascension","Ascension","Ascension","NA","United Kingdom","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region","Mayotte","Mayotte","Mayotte","NA","France","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region","Réunion","Réunion","Réunion","NA","France","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region","Saint Helena","Saint Helena","Saint Helena","NA","United Kingdom","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region","Tristan da Cunha","Tristan da Cunha","Tristan da Cunha","NA","United Kingdom","Africa","Afrotropic",NA,NA,NA,NA
+"Offshore Region [type localities only]","Western Sahara","Morocco","Western Sahara","NA","Morocco","Africa","Afrotropic",NA,NA,NA,NA
+"Biogeographic Realm","Afrotropic","NA","NA","NA","NA","Africa|Asia","Afrotropic",NA,NA,NA,NA
+"Country","Bahrain","Bahrain","Bahrain","NA","Bahrain","Asia","Afrotropic","bh","bhr",48,"Bahrain"
+"Country","Oman","Oman","Oman","NA","Oman","Asia","Afrotropic","om","omn",512,"Oman"
+"Country","Qatar","Qatar","Qatar","NA","Qatar","Asia","Afrotropic","qa","qat",634,"Qatar"
+"Country","United Arab Emirates","United Arab Emirates","United Arab Emirates","NA","United Arab Emirates","Asia","Afrotropic","ae","are",784,"United Arab Emirates"
+"Country","Yemen","Yemen","Yemen","NA","Yemen","Asia","Afrotropic","ye","yem",887,"Yemen"
+"Continent","Africa","Africa","Africa","NA","NA","Africa","Afrotropic|Palearctic",NA,NA,NA,NA
+"Biogeographic Realm","Antarctic","NA","NA","NA","NA","Antarctica","Antarctic",NA,NA,NA,NA
+"Continent","Antarctica","Antarctica","Antarctica","NA","NA","Antarctica","Antarctic",NA,NA,NA,NA
+"Country Subregion","Crozet","French Southern and Antarctic Lands","France","Crozet","France","Antarctica","Antarctic",NA,NA,NA,NA
+"Country Subregion","Kerguelen","French Southern and Antarctic Lands","France","Kerguelen","France","Antarctica","Antarctic",NA,NA,NA,NA
+"Offshore Region","Bouvet Island","Bouvet Island","Bouvet Island","NA","United Kingdom","Antarctica","Antarctic",NA,NA,NA,NA
+"Offshore Region","French Southern and Antarctic Lands","French Southern and Antarctic Lands","French Southern and Antarctic Lands","NA","France","Antarctica","Antarctic",NA,NA,NA,NA
+"Offshore Region","Prince Edward Islands","Prince Edward Islands","Prince Edward Islands","NA","South Africa","Antarctica","Antarctic",NA,NA,NA,NA
+"Offshore Region","South Georgia and the South Sandwich Islands","South Georgia and the South Sandwich Islands","South Georgia and the South Sandwich Islands","NA","United Kingdom","Antarctica","Antarctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Timor","Asia","Asia","Timor","Indonesia|East Timor","Asia","Australasia",NA,NA,NA,NA
+"Country","East Timor","East Timor","East Timor","NA","East Timor","Asia","Australasia","tl","tls",626,"Timor-Leste"
+"Country Subregion","Lesser Sunda Islands","Indonesia","Indonesia","Lesser Sunda Islands","Indonesia","Asia","Australasia",NA,NA,NA,NA
+"Country Subregion","Sulawesi","Indonesia","Indonesia","Sulawesi","Indonesia","Asia","Australasia",NA,NA,NA,NA
+"Continent Subregion [type localities only]","New Guinea","Oceania","Oceania","New Guinea","Indonesia|Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country","Australia","Australia","Australia","NA","Australia","Oceania (Continent)","Australasia","au","aus",36,"Australia"
+"Country","New Zealand","New Zealand","New Zealand","NA","New Zealand","Oceania (Continent)","Australasia","nz","nzl",554,"New Zealand"
+"Country","Papua New Guinea","Papua New Guinea","Papua New Guinea","NA","Papua New Guinea","Oceania (Continent)","Australasia","pg","png",598,"Papua New Guinea"
+"Country","Solomon Islands","Solomon Islands","Solomon Islands","NA","Solomon Islands","Oceania (Continent)","Australasia","sb","slb",90,"Solomon Islands"
+"Country","Vanuatu","Vanuatu","Vanuatu","NA","Vanuatu","Oceania (Continent)","Australasia","vu","vut",548,"Vanuatu"
+"Country Subregion","Australian Capital Territory","Australia","Australia","Australian Capital Territory","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Bougainville Region","Papua New Guinea","Papua New Guinea","Bougainville Region","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Central Province","Papua New Guinea","Papua New Guinea","Central Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Chimbu Province","Papua New Guinea","Papua New Guinea","Chimbu Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Choiseul","Solomon Islands","Solomon Islands","Choiseul","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","East Sepik Province","Papua New Guinea","Papua New Guinea","East Sepik Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Eastern Highlands Province","Papua New Guinea","Papua New Guinea","Eastern Highlands Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Enga Province","Papua New Guinea","Papua New Guinea","Enga Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Guadalcanal","Solomon Islands","Solomon Islands","Guadalcanal","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Gulf Province","Papua New Guinea","Papua New Guinea","Gulf Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Hela Province","Papua New Guinea","Papua New Guinea","Hela Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Madang Province","Papua New Guinea","Papua New Guinea","Madang Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Makira","Solomon Islands","Solomon Islands","Makira","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Malaita","Solomon Islands","Solomon Islands","Malaita","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Manus Province","Papua New Guinea","Papua New Guinea","Manus Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Milne Bay Province","Papua New Guinea","Papua New Guinea","Milne Bay Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Moluccas","Indonesia","Indonesia","Moluccas","Indonesia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Morobe Province","Papua New Guinea","Papua New Guinea","Morobe Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","National Capital District","Papua New Guinea","Papua New Guinea","National Capital District","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","New Britain","Papua New Guinea","Papua New Guinea","New Britain","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","New Ireland Province","Papua New Guinea","Papua New Guinea","New Ireland Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","New South Wales","Australia","Australia","New South Wales","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Northern Territory","Australia","Australia","Northern Territory","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Oro Province","Papua New Guinea","Papua New Guinea","Oro Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Queensland","Australia","Australia","Queensland","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Rennell","Solomon Islands","Solomon Islands","Rennell","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Sandaun Province","Papua New Guinea","Papua New Guinea","Sandaun Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Santa Isabel","Solomon Islands","Solomon Islands","Santa Isabel","Solomon Islands","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","South Australia","Australia","Australia","South Australia","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Southern Highlands Province","Papua New Guinea","Papua New Guinea","Southern Highlands Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Tasmania","Australia","Australia","Tasmania","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Victoria","Australia","Australia","Victoria","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Western Australia","Australia","Australia","Western Australia","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Western Highlands Province","Papua New Guinea","Papua New Guinea","Western Highlands Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Western New Guinea","Indonesia","Indonesia","Western New Guinea","Indonesia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Country Subregion","Western Province","Papua New Guinea","Papua New Guinea","Western Province","Papua New Guinea","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Offshore Region","New Caledonia","New Caledonia","New Caledonia","NA","France","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Norfolk Island","Norfolk Island","Australia","Norfolk Island","Australia","Oceania (Continent)","Australasia",NA,NA,NA,NA
+"Biogeographic Realm","Australasia","NA","NA","NA","NA","Oceania (Continent)|Asia","Australasia",NA,NA,NA,NA
+"Continent","Oceania (Continent)","Oceania (Continent)","Oceania","NA","NA","Oceania (Continent)|Asia","Australasia|Oceania (Biorealm)",NA,NA,NA,NA
+"Biogeographic Realm","Indomalaya","NA","NA","NA","NA","Asia","Indomalaya",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Southern Asia","Asia","Asia","Southern Asia","NA","Asia","Indomalaya",NA,NA,NA,NA
+"Country","Bangladesh","Bangladesh","Bangladesh","NA","Bangladesh","Asia","Indomalaya","bd","bgd",50,"Bangladesh"
+"Country","Bhutan","Bhutan","Bhutan","NA","Bhutan","Asia","Indomalaya","bt","btn",64,"Bhutan"
+"Country","Brunei","Brunei","Brunei","NA","Brunei","Asia","Indomalaya","bn","brn",96,"Brunei Darussalam"
+"Country","Cambodia","Cambodia","Cambodia","NA","Cambodia","Asia","Indomalaya","kh","khm",116,"Cambodia"
+"Country","India","India","India","NA","India","Asia","Indomalaya","in","ind",356,"India"
+"Country","Laos","Laos","Laos","NA","Laos","Asia","Indomalaya","la","lao",418,"Lao People's Democratic Republic"
+"Country","Malaysia","Malaysia","Malaysia","NA","Malaysia","Asia","Indomalaya","my","mys",458,"Malaysia"
+"Country","Maldives","Maldives","Maldives","NA","Maldives","Asia","Indomalaya","mv","mdv",462,"Maldives"
+"Country","Myanmar","Myanmar","Myanmar","NA","Myanmar","Asia","Indomalaya","mm","mmr",104,"Myanmar"
+"Country","Nepal","Nepal","Nepal","NA","Nepal","Asia","Indomalaya","np","npl",524,"Nepal"
+"Country","Pakistan","Pakistan","Pakistan","NA","Pakistan","Asia","Indomalaya","pk","pak",586,"Pakistan"
+"Country","Philippines","Philippines","Philippines","NA","Philippines","Asia","Indomalaya","ph","phl",608,"Philippines"
+"Country","Singapore","Singapore","Singapore","NA","Singapore","Asia","Indomalaya","sg","sgp",702,"Singapore"
+"Country","Sri Lanka","Sri Lanka","Sri Lanka","NA","Sri Lanka","Asia","Indomalaya","lk","lka",144,"Sri Lanka"
+"Country","Taiwan","Taiwan","Taiwan","NA","Taiwan","Asia","Indomalaya","tw","twn",158,"Taiwan (Province of China)"
+"Country","Thailand","Thailand","Thailand","NA","Thailand","Asia","Indomalaya","th","tha",764,"Thailand"
+"Country","Vietnam","Vietnam","Vietnam","NA","Vietnam","Asia","Indomalaya","vn","vnm",704,"Viet Nam"
+"Country Subregion","Andhra Pradesh","India","India","Andhra Pradesh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Anhui","China","China","Anhui","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Arunachal Pradesh","India","India","Arunachal Pradesh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Assam","India","India","Assam","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Balabac","Philippines","Philippines","Balabac","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Balochistan","Pakistan","Pakistan","Balochistan","Pakistan","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Balut","Philippines","Philippines","Balut","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Basilan","Philippines","Philippines","Basilan","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Bihar","India","India","Bihar","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Bohol","Philippines","Philippines","Bohol","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Busuanga","Philippines","Philippines","Busuanga","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Cagayan de Sulu","Philippines","Philippines","Cagayan de Sulu","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Camiguin","Philippines","Philippines","Camiguin","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Catanduanes","Philippines","Philippines","Catanduanes","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Cebu","Philippines","Philippines","Cebu","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Chhattisgarh","India","India","Chhattisgarh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Chongqing","China","China","Chongqing","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Culion","Philippines","Philippines","Culion","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Cuyo","Philippines","Philippines","Cuyo","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Delhi","India","India","Delhi","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Dinagat","Philippines","Philippines","Dinagat","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Fujian","China","China","Fujian","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Gilgit-Baltistan","Pakistan","Pakistan","Gilgit-Baltistan","Pakistan","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Guangdong","China","China","Guangdong","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Guangxi","China","China","Guangxi","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Guimaras","Philippines","Philippines","Guimaras","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Guizhou","China","China","Guizhou","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Gujarat","India","India","Gujarat","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Hainan","China","China","Hainan","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Haryana","India","India","Haryana","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Himachal Pradesh","India","India","Himachal Pradesh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Hong Kong","China","China","Hong Kong","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Hubei","China","China","Hubei","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Hunan","China","China","Hunan","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Jammu and Kashmir","India","India","Jammu and Kashmir","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Java","Indonesia","Indonesia","Java","Indonesia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Jharkhand","India","India","Jharkhand","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Jiangxi","China","China","Jiangxi","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Jolo","Philippines","Philippines","Jolo","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Kalimantan","Indonesia","Indonesia","Kalimantan","Indonesia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Karnataka","India","India","Karnataka","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Kerala","India","India","Kerala","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Khyber-Pakhtunkhwa","Pakistan","Pakistan","Khyber-Pakhtunkhwa","Pakistan","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Labuan","Malaysia","Malaysia","Labuan","Malaysia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Ladakh","India","India","Ladakh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Leyte","Philippines","Philippines","Leyte","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Lubang","Philippines","Philippines","Lubang","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Luzon","Philippines","Philippines","Luzon","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Macau","China","China","Macau","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Madhya Pradesh","India","India","Madhya Pradesh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Maharashtra","India","India","Maharashtra","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Malanipa","Philippines","Philippines","Malanipa","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Manipur","India","India","Manipur","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Masbate","Philippines","Philippines","Masbate","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Meghalaya","India","India","Meghalaya","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Mindanao","Philippines","Philippines","Mindanao","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Mindoro","Philippines","Philippines","Mindoro","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Nagaland","India","India","Nagaland","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Negros","Philippines","Philippines","Negros","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Orissa","India","India","Orissa","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Palawan","Philippines","Philippines","Palawan","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Panay","Philippines","Philippines","Panay","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Peninsular Malaysia","Malaysia","Malaysia","Peninsular Malaysia","Malaysia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Polillo","Philippines","Philippines","Polillo","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Pondicherry","India","India","Pondicherry","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Punjab (India)","India","India","Punjab (India)","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Punjab (Pakistan)","Pakistan","Pakistan","Punjab (Pakistan)","Pakistan","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Rajasthan","India","India","Rajasthan","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sabah","Malaysia","Malaysia","Sabah","Malaysia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Samar","Philippines","Philippines","Samar","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sarawak","Malaysia","Malaysia","Sarawak","Malaysia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Shanghai","China","China","Shanghai","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sibuyan","Philippines","Philippines","Sibuyan","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sikkim","India","India","Sikkim","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sindh","Pakistan","Pakistan","Sindh","Pakistan","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Sumatra","Indonesia","Indonesia","Sumatra","Indonesia","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Tablas","Philippines","Philippines","Tablas","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Tamil Nadu","India","India","Tamil Nadu","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Tawitawi","Philippines","Philippines","Tawitawi","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Ticao","Philippines","Philippines","Ticao","Philippines","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Uttar Pradesh","India","India","Uttar Pradesh","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Uttarakhand","India","India","Uttarakhand","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","West Bengal","India","India","West Bengal","India","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Yunnan","China","China","Yunnan","China","Asia","Indomalaya",NA,NA,NA,NA
+"Country Subregion","Zhejiang","China","China","Zhejiang","China","Asia","Indomalaya",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Andaman and Nicobar Islands","Andaman and Nicobar Islands","India","Andaman and Nicobar Islands","India","Asia","Indomalaya",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Christmas Island","Christmas Island","Australia","Christmas Island","Australia","Asia","Indomalaya",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Cocos Islands","Cocos Islands","Australia","Cocos Islands","Australia","Asia","Indomalaya",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Southeastern Asia","Asia","Asia","Southeastern Asia","NA","Asia","Indomalaya|Australasia",NA,NA,NA,NA
+"Country","Indonesia","Indonesia","Indonesia","NA","Indonesia","Asia|Oceania (Continent)","Indomalaya|Australasia","id","idn",360,"Indonesia"
+"Ocean [type localities only]","Arctic Ocean","NA","Arctic Ocean","NA","NA","NA","Marine",NA,NA,NA,NA
+"Ocean [type localities only]","Atlantic Ocean","NA","Atlantic Ocean","NA","NA","NA","Marine",NA,NA,NA,NA
+"Ocean [type localities only]","Indian Ocean","NA","Indian Ocean","NA","NA","NA","Marine",NA,NA,NA,NA
+"Ocean [type localities only]","Mediterranean Sea","NA","Mediterranean Sea","NA","NA","NA","Marine",NA,NA,NA,NA
+"Ocean [type localities only]","Pacific Ocean","NA","Pacific Ocean","NA","NA","NA","Marine",NA,NA,NA,NA
+"Ocean [type localities only]","Southern Ocean","NA","Southern Ocean","NA","NA","NA","Marine",NA,NA,NA,NA
+"Domesticated [distribution for domestic species]","Domesticated","Domesticated","NA","NA","NA","NA","NA",NA,NA,NA,NA
+"Earth [type localities only]","Earth","NA","Earth","NA","NA","NA","NA",NA,NA,NA,NA
+"Country Subregion","Baja California","Mexico","Mexico","Baja California","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Baja California Sur","Mexico","Mexico","Baja California Sur","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Chihuahua","Mexico","Mexico","Chihuahua","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Coahuila","Mexico","Mexico","Coahuila","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Durango","Mexico","Mexico","Durango","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Nuevo León","Mexico","Mexico","Nuevo León","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","San Luis Potosí","Mexico","Mexico","San Luis Potosí","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Sinaloa","Mexico","Mexico","Sinaloa","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Sonora","Mexico","Mexico","Sonora","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Tamaulipas","Mexico","Mexico","Tamaulipas","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Country Subregion","Zacatecas","Mexico","Mexico","Zacatecas","Mexico","North America","Nearcitc",NA,NA,NA,NA
+"Biogeographic Realm","Nearctic","NA","NA","NA","NA","North America","Nearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Northern America","North America","North America","Northern America","NA","North America","Nearctic",NA,NA,NA,NA
+"Country","Canada","Canada","Canada","NA","Canada","North America","Nearctic","ca","can",124,"Canada"
+"Country","United States","United States","United States","NA","United States","North America","Nearctic","us","usa",840,"United States of America"
+"Country Subregion","Alabama","United States","United States","Alabama","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Alaska","Alaska","United States","Alaska","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Alberta","Canada","Canada","Alberta","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Arizona","United States","United States","Arizona","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Arkansas","United States","United States","Arkansas","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","British Columbia","Canada","Canada","British Columbia","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","California","United States","United States","California","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Colorado","United States","United States","Colorado","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Connecticut","United States","United States","Connecticut","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Delaware","United States","United States","Delaware","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Florida","United States","United States","Florida","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Georgia (United States)","United States","United States","Georgia (United States)","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","District of Columbia","United States","United States","District of Columbia","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Idaho","United States","United States","Idaho","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Illinois","United States","United States","Illinois","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Indiana","United States","United States","Indiana","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Iowa","United States","United States","Iowa","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Kansas","United States","United States","Kansas","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Kentucky","United States","United States","Kentucky","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Louisiana","United States","United States","Louisiana","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Maine","United States","United States","Maine","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Manitoba","Canada","Canada","Manitoba","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Maryland","United States","United States","Maryland","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Massachusetts","United States","United States","Massachusetts","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Michigan","United States","United States","Michigan","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Minnesota","United States","United States","Minnesota","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Mississippi","United States","United States","Mississippi","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Missouri","United States","United States","Missouri","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Montana","United States","United States","Montana","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Nebraska","United States","United States","Nebraska","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Nevada","United States","United States","Nevada","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","New Brunswick","Canada","Canada","New Brunswick","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","New Hampshire","United States","United States","New Hampshire","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","New Jersey","United States","United States","New Jersey","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","New Mexico","United States","United States","New Mexico","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","New York","United States","United States","New York","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Newfoundland and Labrador","Canada","Canada","Newfoundland and Labrador","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","North Carolina","United States","United States","North Carolina","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","North Dakota","United States","United States","North Dakota","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Northwest Territories","Canada","Canada","Northwest Territories","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Nova Scotia","Canada","Canada","Nova Scotia","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Nunavut","Canada","Canada","Nunavut","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Ohio","United States","United States","Ohio","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Oklahoma","United States","United States","Oklahoma","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Ontario","Canada","Canada","Ontario","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Oregon","United States","United States","Oregon","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Pennsylvania","United States","United States","Pennsylvania","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Quebec","Canada","Canada","Quebec","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Rhode Island","United States","United States","Rhode Island","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Saskatchewan","Canada","Canada","Saskatchewan","Canada","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","South Carolina","United States","United States","South Carolina","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","South Dakota","United States","United States","South Dakota","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Tennessee","United States","United States","Tennessee","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Texas","United States","United States","Texas","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Utah","United States","United States","Utah","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Vermont","United States","United States","Vermont","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Virginia","United States","United States","Virginia","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Washington","United States","United States","Washington","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","West Virginia","United States","United States","West Virginia","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Wisconsin","United States","United States","Wisconsin","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Wyoming","United States","United States","Wyoming","United States","North America","Nearctic",NA,NA,NA,NA
+"Country Subregion","Yukon","Canada","Canada","Yukon","Canada","North America","Nearctic",NA,NA,NA,NA
+"Offshore Region","Bermuda","Bermuda","Bermuda","NA","United Kingdom","North America","Nearctic",NA,NA,NA,NA
+"Offshore Region","Greenland","Greenland","Greenland","NA","Denmark","North America","Nearctic",NA,NA,NA,NA
+"Continent","North America","North America","North America","NA","NA","North America","Nearctic|Neotropic",NA,NA,NA,NA
+"Country","Mexico","Mexico","Mexico","NA","Mexico","North America","Nearctic|Neotropic","mx","mex",484,"Mexico"
+"Continent Subregion [type localities only]","Caribbean","North America","North America","Caribbean","NA","North America","Neotropic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Central America","North America","North America","Central America","NA","North America","Neotropic",NA,NA,NA,NA
+"Country","Antigua and Barbuda","Antigua and Barbuda","Antigua and Barbuda","NA","Antigua and Barbuda","North America","Neotropic","ag","atg",28,"Antigua and Barbuda"
+"Country","Bahamas","Bahamas","Bahamas","NA","Bahamas","North America","Neotropic","bs","bhs",44,"Bahamas"
+"Country","Barbados","Barbados","Barbados","NA","Barbados","North America","Neotropic","bb","brb",52,"Barbados"
+"Country","Belize","Belize","Belize","NA","Belize","North America","Neotropic","bz","blz",84,"Belize"
+"Country","Costa Rica","Costa Rica","Costa Rica","NA","Costa Rica","North America","Neotropic","cr","cri",188,"Costa Rica"
+"Country","Cuba","Cuba","Cuba","NA","Cuba","North America","Neotropic","cu","cub",192,"Cuba"
+"Country","Dominica","Dominica","Dominica","NA","Dominica","North America","Neotropic","dm","dma",212,"Dominica"
+"Country","Dominican Republic","Dominican Republic","Dominican Republic","NA","Dominican Republic","North America","Neotropic","do","dom",214,"Dominican Republic"
+"Country","El Salvador","El Salvador","El Salvador","NA","El Salvador","North America","Neotropic","sv","slv",222,"El Salvador"
+"Country","Grenada","Grenada","Grenada","NA","Grenada","North America","Neotropic","gd","grd",308,"Grenada"
+"Country","Guatemala","Guatemala","Guatemala","NA","Guatemala","North America","Neotropic","gt","gtm",320,"Guatemala"
+"Country","Haiti","Haiti","Haiti","NA","Haiti","North America","Neotropic","ht","hti",332,"Haiti"
+"Country","Honduras","Honduras","Honduras","NA","Honduras","North America","Neotropic","hn","hnd",340,"Honduras"
+"Country","Jamaica","Jamaica","Jamaica","NA","Jamaica","North America","Neotropic","jm","jam",388,"Jamaica"
+"Country","Nicaragua","Nicaragua","Nicaragua","NA","Nicaragua","North America","Neotropic","ni","nic",558,"Nicaragua"
+"Country","Panama","Panama","Panama","NA","Panama","North America","Neotropic","pa","pan",591,"Panama"
+"Country","Saint Kitts and Nevis","Saint Kitts and Nevis","Saint Kitts and Nevis","NA","Saint Kitts and Nevis","North America","Neotropic","kn","kna",659,"Saint Kitts and Nevis"
+"Country","Saint Lucia","Saint Lucia","Saint Lucia","NA","Saint Lucia","North America","Neotropic","lc","lca",662,"Saint Lucia"
+"Country","Saint Vincent and the Grenadines","Saint Vincent and the Grenadines","Saint Vincent and the Grenadines","NA","Saint Vincent and the Grenadines","North America","Neotropic","vc","vct",670,"Saint Vincent and the Grenadines"
+"Country Subregion","Aguascalientes","Mexico","Mexico","Aguascalientes","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Antigua","Antigua and Barbuda","Antigua and Barbuda","Antigua","Antigua and Barbuda","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Barbuda","Antigua and Barbuda","Antigua and Barbuda","Barbuda","Antigua and Barbuda","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Campeche","Mexico","Mexico","Campeche","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Chiapas","Mexico","Mexico","Chiapas","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Colima","Mexico","Mexico","Colima","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Distrito Federal (Mexico)","Mexico","Mexico","Distrito Federal (Mexico)","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Guanajuato","Mexico","Mexico","Guanajuato","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Guerrero","Mexico","Mexico","Guerrero","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Hidalgo","Mexico","Mexico","Hidalgo","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Jalisco","Mexico","Mexico","Jalisco","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Mexico State","Mexico","Mexico","Mexico State","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Michoacán","Mexico","Mexico","Michoacán","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Morelos","Mexico","Mexico","Morelos","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Nayarit","Mexico","Mexico","Nayarit","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Nevis","Saint Kitts and Nevis","Saint Kitts and Nevis","Nevis","Saint Kitts and Nevis","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Oaxaca","Mexico","Mexico","Oaxaca","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Puebla","Mexico","Mexico","Puebla","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Querétaro","Mexico","Mexico","Querétaro","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Quintana Roo","Mexico","Mexico","Quintana Roo","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Saint Kitts","Saint Kitts and Nevis","Saint Kitts and Nevis","Saint Kitts","Saint Kitts and Nevis","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Saint Vincent","Saint Vincent and the Grenadines","Saint Vincent and the Grenadines","Saint Vincent","Saint Vincent and the Grenadines","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Swan Islands","Honduras","Honduras","Swan Islands","Honduras","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tabasco","Mexico","Mexico","Tabasco","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tlaxcala","Mexico","Mexico","Tlaxcala","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Veracruz","Mexico","Mexico","Veracruz","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Yucatán","Mexico","Mexico","Yucatán","Mexico","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Anguilla","Anguilla","Anguilla","NA","United Kingdom","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","British Virgin Islands","British Virgin Islands","British Virgin Islands","NA","United Kingdom","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Cayman Islands","Cayman Islands","Cayman Islands","NA","United Kingdom","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Guadeloupe","Guadeloupe","Guadeloupe","NA","France","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Martinique","Martinique","Martinique","NA","France","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Montserrat","Montserrat","Montserrat","NA","United Kingdom","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Puerto Rico","Puerto Rico","Puerto Rico","NA","United States","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Saba","Saba","Saba","NA","Netherlands","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Saint Barthélemy","Saint Barthélemy","Saint Barthélemy","NA","France","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Sint Eustatius","Sint Eustatius","Sint Eustatius","NA","Netherlands","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Sint Maarten","Sint Maarten","Sint Maarten","NA","France|Netherlands","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Turks and Caicos Islands","Turks and Caicos Islands","Turks and Caicos Islands","NA","United Kingdom","North America","Neotropic",NA,NA,NA,NA
+"Offshore Region","United States Virgin Islands","United States Virgin Islands","United States Virgin Islands","NA","United States","North America","Neotropic",NA,NA,NA,NA
+"Continent","South America","South America","South America","NA","NA","South America","Neotropic",NA,NA,NA,NA
+"Country","Argentina","Argentina","Argentina","NA","Argentina","South America","Neotropic","ar","arg",32,"Argentina"
+"Country","Bolivia","Bolivia","Bolivia","NA","Bolivia","South America","Neotropic","bo","bol",68,"Bolivia, Plurinational State of"
+"Country","Brazil","Brazil","Brazil","NA","Brazil","South America","Neotropic","br","bra",76,"Brazil"
+"Country","Chile","Chile","Chile","NA","Chile","South America","Neotropic","cl","chl",152,"Chile"
+"Country","Colombia","Colombia","Colombia","NA","Colombia","South America","Neotropic","co","col",170,"Colombia"
+"Country","Ecuador","Ecuador","Ecuador","NA","Ecuador","South America","Neotropic","ec","ecu",218,"Ecuador"
+"Country","Guyana","Guyana","Guyana","NA","Guyana","South America","Neotropic","gy","guy",328,"Guyana"
+"Country","Paraguay","Paraguay","Paraguay","NA","Paraguay","South America","Neotropic","py","pry",600,"Paraguay"
+"Country","Peru","Peru","Peru","NA","Peru","South America","Neotropic","pe","per",604,"Peru"
+"Country","Suriname","Suriname","Suriname","NA","Suriname","South America","Neotropic","sr","sur",740,"Suriname"
+"Country","Trinidad and Tobago","Trinidad and Tobago","Trinidad and Tobago","NA","Trinidad and Tobago","South America","Neotropic","tt","tto",780,"Trinidad and Tobago"
+"Country","Uruguay","Uruguay","Uruguay","NA","Uruguay","South America","Neotropic","uy","ury",858,"Uruguay"
+"Country","Venezuela","Venezuela","Venezuela","NA","Venezuela","South America","Neotropic","ve","ven",862,"Venezuela, Bolivarian Republic of"
+"Country Subregion","Acre","Brazil","Brazil","Acre","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Alagoas","Brazil","Brazil","Alagoas","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Amapá","Brazil","Brazil","Amapá","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Amazonas","Brazil","Brazil","Amazonas","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Amazonas (Venezuela)","Venezuela","Venezuela","Amazonas (Venezuela)","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Amazonas Department","Colombia","Colombia","Amazonas Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Antioquia Department","Colombia","Colombia","Antioquia Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Apure","Venezuela","Venezuela","Apure","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Aragua","Venezuela","Venezuela","Aragua","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Arauca Department","Colombia","Colombia","Arauca Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Atlántico Department","Colombia","Colombia","Atlántico Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Bahia","Brazil","Brazil","Bahia","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Barinas","Venezuela","Venezuela","Barinas","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Bogotá","Colombia","Colombia","Bogotá","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Bolívar","Venezuela","Venezuela","Bolívar","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Bolívar Department","Colombia","Colombia","Bolívar Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Boyacá Department","Colombia","Colombia","Boyacá Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Buenos Aires","Argentina","Argentina","Buenos Aires","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Caldas Department","Colombia","Colombia","Caldas Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Capital District (Venezuela)","Venezuela","Venezuela","Capital District (Venezuela)","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Caquetá Department","Colombia","Colombia","Caquetá Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Carabobo","Venezuela","Venezuela","Carabobo","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Casanare Department","Colombia","Colombia","Casanare Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Catamarca","Argentina","Argentina","Catamarca","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Cauca Department","Colombia","Colombia","Cauca Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Ceará","Brazil","Brazil","Ceará","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Cesar Department","Colombia","Colombia","Cesar Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Chaco","Argentina","Argentina","Chaco","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Chocó Department","Colombia","Colombia","Chocó Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Chubut","Argentina","Argentina","Chubut","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Córdoba (Argentina)","Argentina","Argentina","Córdoba (Argentina)","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Córdoba Department","Colombia","Colombia","Córdoba Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Corrientes","Argentina","Argentina","Corrientes","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Cundinamarca Department","Colombia","Colombia","Cundinamarca Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Delta Amacuro","Venezuela","Venezuela","Delta Amacuro","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Distrito Federal (Brazil)","Brazil","Brazil","Distrito Federal (Brazil)","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Entre Ríos","Argentina","Argentina","Entre Ríos","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Espírito Santo","Brazil","Brazil","Espírito Santo","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Falcón","Venezuela","Venezuela","Falcón","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Federal Dependencies (Venezuela)","Venezuela","Venezuela","Federal Dependencies (Venezuela)","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Formosa","Argentina","Argentina","Formosa","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Goiás","Brazil","Brazil","Goiás","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Guárico","Venezuela","Venezuela","Guárico","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Huila Department","Colombia","Colombia","Huila Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Jujuy","Argentina","Argentina","Jujuy","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","La Guaira","Venezuela","Venezuela","La Guaira","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","La Guajira Department","Colombia","Colombia","La Guajira Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","La Pampa","Argentina","Argentina","La Pampa","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","La Rioja (Argentina)","Argentina","Argentina","La Rioja (Argentina)","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Lara","Venezuela","Venezuela","Lara","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Magdalena Department","Colombia","Colombia","Magdalena Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Maranhão","Brazil","Brazil","Maranhão","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Mato Grosso","Brazil","Brazil","Mato Grosso","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Mato Grosso do Sul","Brazil","Brazil","Mato Grosso do Sul","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Mendoza","Argentina","Argentina","Mendoza","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Mérida","Venezuela","Venezuela","Mérida","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Meta Department","Colombia","Colombia","Meta Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Minas Gerais","Brazil","Brazil","Minas Gerais","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Miranda","Venezuela","Venezuela","Miranda","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Misiones","Argentina","Argentina","Misiones","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Monagas","Venezuela","Venezuela","Monagas","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Nariño Department","Colombia","Colombia","Nariño Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Neuquén","Argentina","Argentina","Neuquén","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Norte de Santander Department","Colombia","Colombia","Norte de Santander Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Nueva Esparta","Venezuela","Venezuela","Nueva Esparta","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Pará","Brazil","Brazil","Pará","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Paraíba","Brazil","Brazil","Paraíba","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Paraná","Brazil","Brazil","Paraná","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Pernambuco","Brazil","Brazil","Pernambuco","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Piauí","Brazil","Brazil","Piauí","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Putumayo Department","Colombia","Colombia","Putumayo Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Quindío Department","Colombia","Colombia","Quindío Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Rio de Janeiro","Brazil","Brazil","Rio de Janeiro","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Rio Grande do Norte","Brazil","Brazil","Rio Grande do Norte","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Rio Grande do Sul","Brazil","Brazil","Rio Grande do Sul","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Río Negro","Argentina","Argentina","Río Negro","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Risaralda Department","Colombia","Colombia","Risaralda Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Rondônia","Brazil","Brazil","Rondônia","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Roraima","Brazil","Brazil","Roraima","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Salta","Argentina","Argentina","Salta","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","San Andrés y Providencia","Colombia","Colombia","San Andrés y Providencia","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","San Juan","Argentina","Argentina","San Juan","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","San Luis","Argentina","Argentina","San Luis","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Santa Catarina","Brazil","Brazil","Santa Catarina","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Santa Cruz","Argentina","Argentina","Santa Cruz","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Santa Fe","Argentina","Argentina","Santa Fe","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Santander Department","Colombia","Colombia","Santander Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Santiago del Estero","Argentina","Argentina","Santiago del Estero","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","São Paulo","Brazil","Brazil","São Paulo","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Sergipe","Brazil","Brazil","Sergipe","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Sucre","Venezuela","Venezuela","Sucre","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Táchira","Venezuela","Venezuela","Táchira","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tierra del Fuego","Argentina","Argentina","Tierra del Fuego","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tobago","Trinidad and Tobago","Trinidad and Tobago","Tobago","Trinidad and Tobago","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tocantins","Brazil","Brazil","Tocantins","Brazil","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tolima Department","Colombia","Colombia","Tolima Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Trinidad","Trinidad and Tobago","Trinidad and Tobago","Trinidad","Trinidad and Tobago","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Trujillo","Venezuela","Venezuela","Trujillo","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Tucumán","Argentina","Argentina","Tucumán","Argentina","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Valle del Cauca Department","Colombia","Colombia","Valle del Cauca Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Vaupés Department","Colombia","Colombia","Vaupés Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Vichada Department","Colombia","Colombia","Vichada Department","Colombia","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Yaracuy","Venezuela","Venezuela","Yaracuy","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Country Subregion","Zulia","Venezuela","Venezuela","Zulia","Venezuela","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Aruba","Aruba","Aruba","NA","Netherlands","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Bonaire","Bonaire","Bonaire","NA","Netherlands","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Curaçao","Curaçao","Curaçao","NA","Netherlands","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region","Falkland Islands","Falkland Islands","Falkland Islands","NA","United Kingdom","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region","French Guiana","French Guiana","French Guiana","NA","France","South America","Neotropic",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Galápagos Islands","Galápagos Islands","Ecuador","Galápagos Islands","Ecuador","South America","Neotropic",NA,NA,NA,NA
+"Biogeographic Realm","Neotropic","NA","NA","NA","NA","South America|North America","Neotropic",NA,NA,NA,NA
+"Biogeographic Realm","Oceania (Biorealm)","NA","NA","NA","NA","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Country","Fiji","Fiji","Fiji","NA","Fiji","Oceania (Continent)","Oceania (Biorealm)","fj","fji",242,"Fiji"
+"Country","Kiribati","Kiribati","Kiribati","NA","Kiribati","Oceania (Continent)","Oceania (Biorealm)","ki","kir",296,"Kiribati"
+"Country","Marshall Islands","Marshall Islands","Marshall Islands","NA","Marshall Islands","Oceania (Continent)","Oceania (Biorealm)","mh","mhl",584,"Marshall Islands"
+"Country","Micronesia","Micronesia","Micronesia","NA","Micronesia","Oceania (Continent)","Oceania (Biorealm)","fm","fsm",583,"Micronesia, Federated States of"
+"Country","Nauru","Nauru","Nauru","NA","Nauru","Oceania (Continent)","Oceania (Biorealm)","nr","nru",520,"Nauru"
+"Country","Northern Marianas","Northern Marianas","Northern Marianas","NA","Northern Marianas","Oceania (Continent)","Oceania (Biorealm)","mp","mnp",580,"Northern Mariana Islands"
+"Country","Palau","Palau","Palau","NA","Palau","Oceania (Continent)","Oceania (Biorealm)","pw","plw",585,"Palau"
+"Country","Samoa","Samoa","Samoa","NA","Samoa","Oceania (Continent)","Oceania (Biorealm)","ws","wsm",882,"Samoa"
+"Country","Tonga","Tonga","Tonga","NA","Tonga","Oceania (Continent)","Oceania (Biorealm)","to","ton",776,"Tonga"
+"Country","Tuvalu","Tuvalu","Tuvalu","NA","Tuvalu","Oceania (Continent)","Oceania (Biorealm)","tv","tuv",798,"Tuvalu"
+"Country Subregion","Hawaii","Hawaii","United States","Hawaii","United States","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","American Samoa","American Samoa","American Samoa","NA","United States","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Cook Islands","Cook Islands","Cook Islands","NA","New Zealand","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","French Polynesia","French Polynesia","French Polynesia","NA","France","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Guam","Guam","Guam","NA","United States","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Niue","Niue","Niue","NA","New Zealand","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Pitcairn","Pitcairn","Pitcairn","NA","United Kingdom","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Tokelau","Tokelau","Tokelau","NA","New Zealand","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Offshore Region","Wallis and Futuna","Wallis and Futuna","Wallis and Futuna","NA","France","Oceania (Continent)","Oceania (Biorealm)",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Northern Africa","Africa","Africa","Northern Africa","NA","Africa","Palearctic",NA,NA,NA,NA
+"Country","Algeria","Algeria","Algeria","NA","Algeria","Africa","Palearctic","dz","dza",12,"Algeria"
+"Country","Egypt","Egypt","Egypt","NA","Egypt","Africa","Palearctic","eg","egy",818,"Egypt"
+"Country","Libya","Libya","Libya","NA","Libya","Africa","Palearctic","ly","lby",434,"Libya"
+"Country","Morocco","Morocco","Morocco","NA","Morocco","Africa","Palearctic","ma","mar",504,"Morocco"
+"Country","Tunisia","Tunisia","Tunisia","NA","Tunisia","Africa","Palearctic","tn","tun",788,"Tunisia"
+"Offshore Region|Country Subregion","Canary Islands","Canary Islands","Spain","Canary Islands","Spain","Africa","Palearctic",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Madeira","Madeira","Portugal","Madeira","Portugal","Africa","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Central Asia","Asia","Asia","Central Asia","NA","Asia","Palearctic",NA,NA,NA,NA
+"Country","Afghanistan","Afghanistan","Afghanistan","NA","Afghanistan","Asia","Palearctic","af","afg",4,"Afghanistan"
+"Country","Iran","Iran","Iran","NA","Iran","Asia","Palearctic","ir","irn",364,"Iran, Islamic Republic of"
+"Country","Iraq","Iraq","Iraq","NA","Iraq","Asia","Palearctic","iq","irq",368,"Iraq"
+"Country","Israel","Israel","Israel","NA","Israel","Asia","Palearctic","il","isr",376,"Israel"
+"Country","Japan","Japan","Japan","NA","Japan","Asia","Palearctic","jp","jpn",392,"Japan"
+"Country","Jordan","Jordan","Jordan","NA","Jordan","Asia","Palearctic","jo","jor",400,"Jordan"
+"Country","Kazakhstan","Kazakhstan","Kazakhstan","NA","Kazakhstan","Asia","Palearctic","kz","kaz",398,"Kazakhstan"
+"Country","Kuwait","Kuwait","Kuwait","NA","Kuwait","Asia","Palearctic","kw","kwt",414,"Kuwait"
+"Country","Kyrgyzstan","Kyrgyzstan","Kyrgyzstan","NA","Kyrgyzstan","Asia","Palearctic","kg","kgz",417,"Kyrgyzstan"
+"Country","Lebanon","Lebanon","Lebanon","NA","Lebanon","Asia","Palearctic","lb","lbn",422,"Lebanon"
+"Country","Mongolia","Mongolia","Mongolia","NA","Mongolia","Asia","Palearctic","mn","mng",496,"Mongolia"
+"Country","North Korea","North Korea","North Korea","NA","North Korea","Asia","Palearctic","kp","prk",408,"Korea, Democratic People's Republic of"
+"Country","Palestine","Palestine","Palestine","NA","Palestine","Asia","Palearctic","ps","pse",275,"Palestine, State of"
+"Country","Saudi Arabia","Saudi Arabia","Saudi Arabia","NA","Saudi Arabia","Asia","Palearctic","sa","sau",682,"Saudi Arabia"
+"Country","South Korea","South Korea","South Korea","NA","South Korea","Asia","Palearctic","kr","kor",410,"Korea, Republic of"
+"Country","Syria","Syria","Syria","NA","Syria","Asia","Palearctic","sy","syr",760,"Syrian Arab Republic"
+"Country","Tajikistan","Tajikistan","Tajikistan","NA","Tajikistan","Asia","Palearctic","tj","tjk",762,"Tajikistan"
+"Country","Turkmenistan","Turkmenistan","Turkmenistan","NA","Turkmenistan","Asia","Palearctic","tm","tkm",795,"Turkmenistan"
+"Country","Uzbekistan","Uzbekistan","Uzbekistan","NA","Uzbekistan","Asia","Palearctic","uz","uzb",860,"Uzbekistan"
+"Country Subregion","Altai Krai","Russia","Russia","Altai Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Altai Republic","Russia","Russia","Altai Republic","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Amur Oblast","Russia","Russia","Amur Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Beijing","China","China","Beijing","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Buryatia","Russia","Russia","Buryatia","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Chelyabinsk Oblast","Russia","Russia","Chelyabinsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Chūbu Region","Japan","Japan","Chūbu Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Chūgoku Region","Japan","Japan","Chūgoku Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Chukotka","Russia","Russia","Chukotka","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Gansu","China","China","Gansu","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hebei","China","China","Hebei","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Heilongjiang","China","China","Heilongjiang","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Henan","China","China","Henan","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hokkaido","Japan","Japan","Hokkaido","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Inner Mongolia","China","China","Inner Mongolia","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Irkutsk Oblast","Russia","Russia","Irkutsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Jiangsu","China","China","Jiangsu","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Jilin","China","China","Jilin","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kamchatka Krai","Russia","Russia","Kamchatka Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kansai Region","Japan","Japan","Kansai Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kantō Region","Japan","Japan","Kantō Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kemerovo Oblast","Russia","Russia","Kemerovo Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Khabarovsk Krai","Russia","Russia","Khabarovsk Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Khakassia","Russia","Russia","Khakassia","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Khanty–Mansi Autonomous Okrug","Russia","Russia","Khanty–Mansi Autonomous Okrug","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Krasnoyarsk Krai","Russia","Russia","Krasnoyarsk Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kurgan Oblast","Russia","Russia","Kurgan Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kyūshū Region","Japan","Japan","Kyūshū Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Liaoning","China","China","Liaoning","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Magadan Oblast","Russia","Russia","Magadan Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ningxia","China","China","Ningxia","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Novosibirsk Oblast","Russia","Russia","Novosibirsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Omsk Oblast","Russia","Russia","Omsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Primorsky Krai","Russia","Russia","Primorsky Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Qinghai","China","China","Qinghai","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sakha","Russia","Russia","Sakha","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sakhalin Oblast","Russia","Russia","Sakhalin Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Shaanxi","China","China","Shaanxi","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Shandong","China","China","Shandong","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Shanxi","China","China","Shanxi","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Shikoku Region","Japan","Japan","Shikoku Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sichuan","China","China","Sichuan","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sverdlovsk Oblast","Russia","Russia","Sverdlovsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tibet","China","China","Tibet","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tōhoku Region","Japan","Japan","Tōhoku Region","Japan","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tomsk Oblast","Russia","Russia","Tomsk Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tuva","Russia","Russia","Tuva","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tyumen Oblast","Russia","Russia","Tyumen Oblast","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Xinjiang","China","China","Xinjiang","China","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Yamalo-Nenets Autonomous Okrug","Russia","Russia","Yamalo-Nenets Autonomous Okrug","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country Subregion","Zabaykalsky Krai","Russia","Russia","Zabaykalsky Krai","Russia","Asia","Palearctic",NA,NA,NA,NA
+"Country","Russia","Russia","Russia","NA","Russia","Asia|Europe","Palearctic","ru","rus",643,"Russian Federation"
+"Country","Turkey","Turkey","Turkey","NA","Turkey","Asia|Europe","Palearctic","tr","tur",792,"Türkiye"
+"Continent","Europe","Europe","Europe","NA","NA","Europe","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Eastern Europe","Europe","Europe","Eastern Europe","NA","Europe","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Northern Europe","Europe","Europe","Northern Europe","NA","Europe","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Southern Europe","Europe","Europe","Southern Europe","NA","Europe","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Western Europe","Europe","Europe","Western Europe","NA","Europe","Palearctic",NA,NA,NA,NA
+"Country","Albania","Albania","Albania","NA","Albania","Europe","Palearctic","al","alb",8,"Albania"
+"Country","Andorra","Andorra","Andorra","NA","Andorra","Europe","Palearctic","ad","and",20,"Andorra"
+"Country","Armenia","Armenia","Armenia","NA","Armenia","Europe","Palearctic","am","arm",51,"Armenia"
+"Country","Austria","Austria","Austria","NA","Austria","Europe","Palearctic","at","aut",40,"Austria"
+"Country","Azerbaijan","Azerbaijan","Azerbaijan","NA","Azerbaijan","Europe","Palearctic","az","aze",31,"Azerbaijan"
+"Country","Belarus","Belarus","Belarus","NA","Belarus","Europe","Palearctic","by","blr",112,"Belarus"
+"Country","Belgium","Belgium","Belgium","NA","Belgium","Europe","Palearctic","be","bel",56,"Belgium"
+"Country","Bosnia and Herzegovina","Bosnia and Herzegovina","Bosnia and Herzegovina","NA","Bosnia and Herzegovina","Europe","Palearctic","ba","bih",70,"Bosnia and Herzegovina"
+"Country","Bulgaria","Bulgaria","Bulgaria","NA","Bulgaria","Europe","Palearctic","bg","bgr",100,"Bulgaria"
+"Country","Croatia","Croatia","Croatia","NA","Croatia","Europe","Palearctic","hr","hrv",191,"Croatia"
+"Country","Cyprus","Cyprus","Cyprus","NA","Cyprus","Europe","Palearctic","cy","cyp",196,"Cyprus"
+"Country","Czech Republic","Czech Republic","Czech Republic","NA","Czech Republic","Europe","Palearctic","cz","cze",203,"Czechia"
+"Country","Denmark","Denmark","Denmark","NA","Denmark","Europe","Palearctic","dk","dnk",208,"Denmark"
+"Country","Estonia","Estonia","Estonia","NA","Estonia","Europe","Palearctic","ee","est",233,"Estonia"
+"Country","Finland","Finland","Finland","NA","Finland","Europe","Palearctic","fi","fin",246,"Finland"
+"Country","France","France","France","NA","France","Europe","Palearctic","fr","fra",250,"France"
+"Country","Georgia","Georgia","Georgia","NA","Georgia","Europe","Palearctic","ge","geo",268,"Georgia"
+"Country","Germany","Germany","Germany","NA","Germany","Europe","Palearctic","de","deu",276,"Germany"
+"Country","Greece","Greece","Greece","NA","Greece","Europe","Palearctic","gr","grc",300,"Greece"
+"Country","Hungary","Hungary","Hungary","NA","Hungary","Europe","Palearctic","hu","hun",348,"Hungary"
+"Country","Iceland","Iceland","Iceland","NA","Iceland","Europe","Palearctic","is","isl",352,"Iceland"
+"Country","Ireland","Ireland","Ireland","NA","Ireland","Europe","Palearctic","ie","irl",372,"Ireland"
+"Country","Italy","Italy","Italy","NA","Italy","Europe","Palearctic","it","ita",380,"Italy"
+"Country","Kosovo","Kosovo","Kosovo","NA","Kosovo","Europe","Palearctic","xk","xkx",NA,"Kosovo"
+"Country","Latvia","Latvia","Latvia","NA","Latvia","Europe","Palearctic","lv","lva",428,"Latvia"
+"Country","Liechtenstein","Liechtenstein","Liechtenstein","NA","Liechtenstein","Europe","Palearctic","li","lie",438,"Liechtenstein"
+"Country","Lithuania","Lithuania","Lithuania","NA","Lithuania","Europe","Palearctic","lt","ltu",440,"Lithuania"
+"Country","Luxembourg","Luxembourg","Luxembourg","NA","Luxembourg","Europe","Palearctic","lu","lux",442,"Luxembourg"
+"Country","Malta","Malta","Malta","NA","Malta","Europe","Palearctic","mt","mlt",470,"Malta"
+"Country","Moldova","Moldova","Moldova","NA","Moldova","Europe","Palearctic","md","mda",498,"Moldova, Republic of"
+"Country","Monaco","Monaco","Monaco","NA","Monaco","Europe","Palearctic","mc","mco",492,"Monaco"
+"Country","Montenegro","Montenegro","Montenegro","NA","Montenegro","Europe","Palearctic","me","mne",499,"Montenegro"
+"Country","Netherlands","Netherlands","Netherlands","NA","Netherlands","Europe","Palearctic","nl","nld",528,"Netherlands"
+"Country","North Macedonia","North Macedonia","North Macedonia","NA","North Macedonia","Europe","Palearctic","mk","mkd",807,"North Macedonia"
+"Country","Norway","Norway","Norway","NA","Norway","Europe","Palearctic","no","nor",578,"Norway"
+"Country","Poland","Poland","Poland","NA","Poland","Europe","Palearctic","pl","pol",616,"Poland"
+"Country","Portugal","Portugal","Portugal","NA","Portugal","Europe","Palearctic","pt","prt",620,"Portugal"
+"Country","Romania","Romania","Romania","NA","Romania","Europe","Palearctic","ro","rou",642,"Romania"
+"Country","San Marino","San Marino","San Marino","NA","San Marino","Europe","Palearctic","sm","smr",674,"San Marino"
+"Country","Serbia","Serbia","Serbia","NA","Serbia","Europe","Palearctic","rs","srb",688,"Serbia"
+"Country","Slovakia","Slovakia","Slovakia","NA","Slovakia","Europe","Palearctic","sk","svk",703,"Slovakia"
+"Country","Slovenia","Slovenia","Slovenia","NA","Slovenia","Europe","Palearctic","si","svn",705,"Slovenia"
+"Country","Spain","Spain","Spain","NA","Spain","Europe","Palearctic","es","esp",724,"Spain"
+"Country","Sweden","Sweden","Sweden","NA","Sweden","Europe","Palearctic","se","swe",752,"Sweden"
+"Country","Switzerland","Switzerland","Switzerland","NA","Switzerland","Europe","Palearctic","ch","che",756,"Switzerland"
+"Country","Ukraine","Ukraine","Ukraine","NA","Ukraine","Europe","Palearctic","ua","ukr",804,"Ukraine"
+"Country","United Kingdom","United Kingdom","United Kingdom","NA","United Kingdom","Europe","Palearctic","gb","gbr",826,"United Kingdom of Great Britain and Northern Ireland"
+"Country Subregion","Abruzzo","Italy","Italy","Abruzzo","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Adygea","Russia","Russia","Adygea","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Alpes-de-Haute-Provence","France","France","Alpes-de-Haute-Provence","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Alpes-Maritimes","France","France","Alpes-Maritimes","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Andalusia","Spain","Spain","Andalusia","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Antwerp","Belgium","Belgium","Antwerp","Belgium","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Aosta Valley","Italy","Italy","Aosta Valley","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Appenzell Ausserrhoden","Switzerland","Switzerland","Appenzell Ausserrhoden","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Appenzell Innerrhoden","Switzerland","Switzerland","Appenzell Innerrhoden","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Apulia","Italy","Italy","Apulia","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Aragon","Spain","Spain","Aragon","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ardèche","France","France","Ardèche","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ardennes","France","France","Ardennes","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ariège","France","France","Ariège","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Arkhangelsk Oblast","Russia","Russia","Arkhangelsk Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Astrakhan Oblast","Russia","Russia","Astrakhan Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Asturias","Spain","Spain","Asturias","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Attica","Greece","Greece","Attica","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Aube","France","France","Aube","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Aude","France","France","Aude","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Baden-Württemberg","Germany","Germany","Baden-Württemberg","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Balearic Islands","Spain","Spain","Balearic Islands","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Basel-Stadt","Switzerland","Switzerland","Basel-Stadt","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bashkortostan","Russia","Russia","Bashkortostan","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Basilicata","Italy","Italy","Basilicata","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Basque Country","Spain","Spain","Basque Country","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bas-Rhin","France","France","Bas-Rhin","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bavaria","Germany","Germany","Bavaria","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Berlin","Germany","Germany","Berlin","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bern","Switzerland","Switzerland","Bern","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bouches-du-Rhône","France","France","Bouches-du-Rhône","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Brandenburg","Germany","Germany","Brandenburg","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bremen","Germany","Germany","Bremen","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Bryansk Oblast","Russia","Russia","Bryansk Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Burgenland","Austria","Austria","Burgenland","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Calabria","Italy","Italy","Calabria","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Calvados","France","France","Calvados","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Campania","Italy","Italy","Campania","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Cantabria","Spain","Spain","Cantabria","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Carinthia","Austria","Austria","Carinthia","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Castile and León","Spain","Spain","Castile and León","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Castilla-La Mancha","Spain","Spain","Castilla-La Mancha","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Catalonia","Spain","Spain","Catalonia","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Central Greece","Greece","Greece","Central Greece","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Central Macedonia","Greece","Greece","Central Macedonia","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Charente","France","France","Charente","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Charente-Maritime","France","France","Charente-Maritime","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Chechnya","Russia","Russia","Chechnya","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Corrèze","France","France","Corrèze","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Corsica","France","France","Corsica","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Côte-d'Or","France","France","Côte-d'Or","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Côtes-d'Armor","France","France","Côtes-d'Armor","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Crete","Greece","Greece","Crete","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Dagestan","Russia","Russia","Dagestan","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Dordogne","France","France","Dordogne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Emilia-Romagna","Italy","Italy","Emilia-Romagna","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","England","United Kingdom","United Kingdom","England","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Epirus","Greece","Greece","Epirus","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Essonne","France","France","Essonne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Eure-et-Loir","France","France","Eure-et-Loir","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Extremadura","Spain","Spain","Extremadura","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Finistère","France","France","Finistère","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Fribourg","Switzerland","Switzerland","Fribourg","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Friesland","Netherlands","Netherlands","Friesland","Netherlands","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Friuli-Venezia Giulia","Italy","Italy","Friuli-Venezia Giulia","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Galicia","Spain","Spain","Galicia","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Gard","France","France","Gard","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Geneva","Switzerland","Switzerland","Geneva","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Gers","France","France","Gers","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Gironde","France","France","Gironde","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Graubünden","Switzerland","Switzerland","Graubünden","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hainaut","Belgium","Belgium","Hainaut","Belgium","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Haute-Garonne","France","France","Haute-Garonne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Haute-Loire","France","France","Haute-Loire","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hautes-Alpes","France","France","Hautes-Alpes","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Haute-Savoie","France","France","Haute-Savoie","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hautes-Pyrénées","France","France","Hautes-Pyrénées","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Haut-Rhin","France","France","Haut-Rhin","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hauts-de-Seine","France","France","Hauts-de-Seine","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hérault","France","France","Hérault","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Hesse","Germany","Germany","Hesse","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Indre-et-Loire","France","France","Indre-et-Loire","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ingushetia","Russia","Russia","Ingushetia","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Isère","France","France","Isère","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Jura (France)","France","France","Jura (France)","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Jura (Switzerland)","Switzerland","Switzerland","Jura (Switzerland)","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kabardino-Balkaria","Russia","Russia","Kabardino-Balkaria","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kaliningrad Oblast","Russia","Russia","Kaliningrad Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kalmykia","Russia","Russia","Kalmykia","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kaluga Oblast","Russia","Russia","Kaluga Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Karachay-Cherkessia","Russia","Russia","Karachay-Cherkessia","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Karelia","Russia","Russia","Karelia","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kirov Oblast","Russia","Russia","Kirov Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Komi Republic","Russia","Russia","Komi Republic","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Kostroma Oblast","Russia","Russia","Kostroma Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Krasnodar Krai","Russia","Russia","Krasnodar Krai","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","La Rioja (Spain)","Spain","Spain","La Rioja (Spain)","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Lazio","Italy","Italy","Lazio","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Leningrad Oblast","Russia","Russia","Leningrad Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Liège","Belgium","Belgium","Liège","Belgium","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Liguria","Italy","Italy","Liguria","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Loire","France","France","Loire","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Loire-Atlantique","France","France","Loire-Atlantique","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Lombardy","Italy","Italy","Lombardy","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Lot-et-Garonne","France","France","Lot-et-Garonne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Lower Austria","Austria","Austria","Lower Austria","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Lower Saxony","Germany","Germany","Lower Saxony","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Luzern","Switzerland","Switzerland","Luzern","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Madrid","Spain","Spain","Madrid","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Maine-et-Loire","France","France","Maine-et-Loire","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Manche","France","France","Manche","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Marche","Italy","Italy","Marche","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Mayenne","France","France","Mayenne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Mecklenburg-Vorpommern","Germany","Germany","Mecklenburg-Vorpommern","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Molise","Italy","Italy","Molise","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Morbihan","France","France","Morbihan","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Moscow","Russia","Russia","Moscow","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Moscow Oblast","Russia","Russia","Moscow Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Murcia","Spain","Spain","Murcia","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Murmansk Oblast","Russia","Russia","Murmansk Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Navarre","Spain","Spain","Navarre","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Nizhny Novgorod Oblast","Russia","Russia","Nizhny Novgorod Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Nord","France","France","Nord","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","North Aegean","Greece","Greece","North Aegean","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","North Holland","Netherlands","Netherlands","North Holland","Netherlands","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","North Ossetia","Russia","Russia","North Ossetia","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","North Rhine-Westphalia","Germany","Germany","North Rhine-Westphalia","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Northern Ireland","United Kingdom","United Kingdom","Northern Ireland","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Oise","France","France","Oise","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Orenburg Oblast","Russia","Russia","Orenburg Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Paris","France","France","Paris","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Pas-de-Calais","France","France","Pas-de-Calais","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Peloponnese","Greece","Greece","Peloponnese","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Perm Krai","Russia","Russia","Perm Krai","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Piedmont","Italy","Italy","Piedmont","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Pskov Oblast","Russia","Russia","Pskov Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Puy-de-Dôme","France","France","Puy-de-Dôme","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Pyrénées-Atlantiques","France","France","Pyrénées-Atlantiques","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Pyrénées-Orientales","France","France","Pyrénées-Orientales","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Rhineland-Palatinate","Germany","Germany","Rhineland-Palatinate","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Rostov Oblast","Russia","Russia","Rostov Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ryazan Oblast","Russia","Russia","Ryazan Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Salzburg","Austria","Austria","Salzburg","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Samara Oblast","Russia","Russia","Samara Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Saône-et-Loire","France","France","Saône-et-Loire","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Saratov Oblast","Russia","Russia","Saratov Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sardinia","Italy","Italy","Sardinia","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Savoie","France","France","Savoie","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Saxony","Germany","Germany","Saxony","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Saxony-Anhalt","Germany","Germany","Saxony-Anhalt","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Schleswig-Holstein","Germany","Germany","Schleswig-Holstein","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Schwyz","Switzerland","Switzerland","Schwyz","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Scotland","United Kingdom","United Kingdom","Scotland","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Seine-et-Marne","France","France","Seine-et-Marne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Seine-Maritime","France","France","Seine-Maritime","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Sicily","Italy","Italy","Sicily","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Smolensk Oblast","Russia","Russia","Smolensk Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Somme","France","France","Somme","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","South Aegean","Greece","Greece","South Aegean","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","South Holland","Netherlands","Netherlands","South Holland","Netherlands","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","St. Gallen","Switzerland","Switzerland","St. Gallen","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Stavropol Krai","Russia","Russia","Stavropol Krai","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Styria","Austria","Austria","Styria","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Svalbard","NA","NA","Svalbard","NA","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tatarstan","Russia","Russia","Tatarstan","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Territoire de Belfort","France","France","Territoire de Belfort","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Thessaly","Greece","Greece","Thessaly","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Thuringia","Germany","Germany","Thuringia","Germany","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ticino","Switzerland","Switzerland","Ticino","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Trentino-Alto Adige","Italy","Italy","Trentino-Alto Adige","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tuscany","Italy","Italy","Tuscany","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tver Oblast","Russia","Russia","Tver Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Tyrol","Austria","Austria","Tyrol","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Ulyanovsk Oblast","Russia","Russia","Ulyanovsk Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Umbria","Italy","Italy","Umbria","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Upper Austria","Austria","Austria","Upper Austria","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Uri","Switzerland","Switzerland","Uri","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Valais","Switzerland","Switzerland","Valais","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Valencian Community","Spain","Spain","Valencian Community","Spain","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Var","France","France","Var","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vaud","Switzerland","Switzerland","Vaud","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vendée","France","France","Vendée","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Veneto","Italy","Italy","Veneto","Italy","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vienna","Austria","Austria","Vienna","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vienne","France","France","Vienne","France","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vladimir Oblast","Russia","Russia","Vladimir Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Volgograd Oblast","Russia","Russia","Volgograd Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vologda Oblast","Russia","Russia","Vologda Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Vorarlberg","Austria","Austria","Vorarlberg","Austria","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Voronezh Oblast","Russia","Russia","Voronezh Oblast","Russia","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Wales","United Kingdom","United Kingdom","Wales","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Western Greece","Greece","Greece","Western Greece","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Western Macedonia","Greece","Greece","Western Macedonia","Greece","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Zeeland","Netherlands","Netherlands","Zeeland","Netherlands","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Zug","Switzerland","Switzerland","Zug","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Country Subregion","Zürich","Switzerland","Switzerland","Zürich","Switzerland","Europe","Palearctic",NA,NA,NA,NA
+"Offshore Region","Faroe","Faroe","Faroe","NA","Denmark","Europe","Palearctic",NA,NA,NA,NA
+"Offshore Region [type localities only]","Guernsey","United Kingdom","Guernsey","NA","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Offshore Region [type localities only]","Jersey","United Kingdom","Jersey","NA","United Kingdom","Europe","Palearctic",NA,NA,NA,NA
+"Offshore Region|Country Subregion","Azores","Azores","Portugal","Azores","Portugal","Europe","Palearctic",NA,NA,NA,NA
+"Biogeographic Realm","Palearctic","NA","NA","NA","NA","Europe|Asia|Africa","Palearctic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Western Asia","Asia","Asia","Western Asia","NA","Asia","Palearctic|Afrotropic",NA,NA,NA,NA
+"Continent Subregion [type localities only]","Eastern Asia","Asia","Asia","Eastern Asia","NA","Asia","Palearctic|Indomalaya",NA,NA,NA,NA
+"Country","China","China","China","NA","China","Asia","Palearctic|Indomalaya","cn","chn",156,"China"
+"Continent","Asia","Asia","Asia","NA","NA","Asia","Palearctic|Indomalaya|Oceania (Biorealm)|Afrotropic",NA,NA,NA,NA

@@ -1,0 +1,108 @@
+﻿File,Columns,Explanation
+MDD1.1_diff_file,,Species level taxonomic differences between MDD version 1.0 and MDD version 1.1.
+,MDDv1.0 Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.1 Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.2_diff_file,,Species level taxonomic differences between MDD version 1.1 and MDD version 1.2.
+,MDDv1.1_SciName,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.2_SciName,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comments,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,References,any references used to justify the given change
+,,
+MDD1.3_diff_file,,Species level taxonomic differences between MDD version 1.2 and MDD version 1.3.
+,sciName.A,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,sciName.B,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'genus name change', 'spelling change', 'species epithet change', 'new recognition', 'removed', 'synonymization', 'concept change'"
+,Reference,any references used to justify the given change
+,diffVersion,the specific versions that the name differs between (in the format 'v1.2-v1.3.1')
+,,
+MDD1.4_diff_file,,Species level taxonomic differences between MDD version 1.3.1 and MDD version 1.4.
+,MDDv1.31_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.4_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,,
+MDD1.5_diff_file,,Species level taxonomic differences between MDD version 1.4 and MDD version 1.5.
+,MDDv1.4_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv_1.5_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,,
+MDD1.6_diff_file,,Species level taxonomic differences between MDD version 1.5 and MDD version 1.6.
+,MDDv1.5_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.6_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'genus name change', 'spelling change', 'species epithet change', 'new recognition', 'removed', 'synonymization', 'concept change'"
+,,
+MDD1.7_diff_file,,Species level taxonomic differences between MDD version 1.6 and MDD version 1.7.
+,MDDv1.6_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.7_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.8_diff_file,,Species level taxonomic differences between MDD version 1.7 and MDD version 1.8.
+,MDDv1.7_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.8_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.9_diff_file,,Species level taxonomic differences between MDD version 1.8 and MDD version 1.9.
+,MDDv1.8_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.9_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.9.1_diff_file,,Species level taxonomic differences between MDD version 1.9 and MDD version 1.9.1.
+,MDDv1.9_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.9.1_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.10_diff_file,,Species level taxonomic differences between MDD version 1.9.1 and MDD version 1.10.
+,MDDv1.9_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.10_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.11_diff_file,,Species level taxonomic differences between MDD version 1.10 and MDD version 1.11.
+,MDDv1.10_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.11_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.12_diff_file,,Species level taxonomic differences between MDD version 1.11 and MDD version 1.12.
+,MDDv1.11_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.12_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.12.1_diff_file,,Species level taxonomic differences between MDD version 1.12 and MDD version 1.12.1.
+,MDDv1.12_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.12.1_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD1.13_diff_file,,Species level taxonomic differences between MDD version 1.12.1 and MDD version 1.13.
+,MDDv1.12.1_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv1.13_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change
+,,
+MDD2.0_diff_file,,Species level taxonomic differences between MDD version 1.13 and MDD version 2.0.
+,MDDv1.13_Name,"the full scientific name used in the previous MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,MDDv2.0_Name,"the full scientific name used in the next MDD version separated by an underscore ""_"" (NA if the species is not included in that version)"
+,Comment,comments related to the given change
+,Category,"the type of change made; this may be filled with a variety of categories, including 'split', 'lump', 'de novo', 'genus change', 'spelling change', 'added', 'removed'"
+,Reference,any references used to justify the given change

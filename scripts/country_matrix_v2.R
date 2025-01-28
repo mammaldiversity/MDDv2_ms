@@ -12,13 +12,16 @@
 # Implemented in R.4.3.2
 ####################################################################
 
+# Set working directory (should be the only thing you need to alter to run script)
+setwd("G:\\My Drive\\Projects\\MDD_v2.0_manuscript\\mddv2_code_stats_figures")
+
 # Load necessary libraries
 library(tidyverse)
 
 # Define input and output files (& path)
-country_csv_path <- "MDD_v2_final/MDD/MDD_v2.0_6759species.csv"
-country_matrix_path <- "MDD_v2_final/v2_country_matrix.txt"
-country_totals_path <- "MDD_v2_final/v2_country_totals.txt"
+country_csv_path <- "inputs\\MDD_v2.0\\MDD_v2.0\\MDD_v2.0_6759species.csv"
+country_matrix_path <- "outputs\\supplementary_files\\v2_country_matrix.txt"
+country_totals_path <- "outputs\\supplementary_files\\v2_country_totals.txt"
 
 # Read in country_csv
 init <- read_csv(country_csv_path) %>% 

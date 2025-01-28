@@ -1,0 +1,56 @@
+MDDv1.4_Name,MDDv_1.5_Name,Comment
+Mustela_africana,Neogale_africana,moved from Mustela to Neogale
+Mustela_felipei,Neogale_felipei,moved from Mustela to Neogale
+Mustela_frenata,Neogale_frenata,moved from Mustela to Neogale
+Mustela_macrodon,Neogale_macrodon,moved from Mustela to Neogale
+Mustela_vison,Neogale_vison,moved from Mustela to Neogale
+Chaerephon_aloysiisabaudiae,Mops_aloysiisabaudiae,moved from Chaerephon to Mops
+Chaerephon_ansorgei,Mops_ansorgei,moved from Chaerephon to Mops
+Chaerephon_atsinanana,Mops_atsinanana,moved from Chaerephon to Mops
+Chaerephon_bemmeleni,Mops_bemmeleni,moved from Chaerephon to Mops
+Chaerephon_bivittatus,Mops_bivittatus,moved from Chaerephon to Mops
+Chaerephon_bregullae,Mops_bregullae,moved from Chaerephon to Mops
+Chaerephon_chapini,Mops_chapini,moved from Chaerephon to Mops
+Chaerephon_gallagheri,Mops_gallagheri,moved from Chaerephon to Mops
+Chaerephon_jobensis,Mops_jobensis,moved from Chaerephon to Mops
+Chaerephon_jobimena,Mops_jobimena,moved from Chaerephon to Mops
+Chaerephon_johorensis,Mops_johorensis,moved from Chaerephon to Mops
+Chaerephon_leucogaster,Mops_leucogaster,moved from Chaerephon to Mops
+Chaerephon_major,Mops_major,moved from Chaerephon to Mops
+Chaerephon_nigeriae,Mops_nigeriae,moved from Chaerephon to Mops
+Chaerephon_plicatus,Mops_plicatus,moved from Chaerephon to Mops
+Chaerephon_pumilus,Mops_pumilus,moved from Chaerephon to Mops
+Chaerephon_pusillus,Mops_pusillus,moved from Chaerephon to Mops
+Chaerephon_russatus,Mops_russatus,moved from Chaerephon to Mops
+Chaerephon_solomonis,Mops_solomonis,moved from Chaerephon to Mops
+Chaerephon_tomensis,Mops_tomensis,moved from Chaerephon to Mops
+NA,Oligoryzomys_guille,recently described
+NA,Thomasomys_pardignasi,recently described
+NA,Uropsilus_dabieshanensis,recently described
+NA,Crocidura_narcondamica,recently described
+Giraffa_camelopardalis,Giraffa_reticulata,split from Giraffa camelopardalis
+NA,Nyctophilus_holtorum,recently described
+Cabassous_unicinctus,Cabassous_squamicaudis,split from Cabassous unicinctus
+NA,Neacomys_auriventer,recently described
+Neacomys_amoenus,Neacomys_carceleni,split from Neacomys amoenus
+NA,Oxymycterus_willkaurco,recently described
+Peromyscus_oaxacensis,Peromyscus_cordillerae,name changed from Peromyscus oaxacensis to Peromyscus cordillerae
+Baiomys_musculus,Baiomys_brunneus,split from Baiomys musculus
+Scapanus_latimanus,Scapanus_occultus,split from Scapanus latimanus
+Hylopetes_alboniger,Priapomys_leonardi,split from Hylopetes alboniger and moved from Hylopetes to the recently described Priapomys
+NA,Eupetaurus_nivamons,recently described
+NA,Eupetaurus_tibetensis,recently described
+NA,Neacomys_leilae,recently described
+NA,Neacomys_oliveirai,recently described
+Lasiurus_cinereus,Aeorestes_cinereus,move from Lasiurus to Aeorestes
+Lasiurus_egregius,Aeorestes_egregius,move from Lasiurus to Aeorestes
+Lasiurus_semotus,Aeorestes_semotus,move from Lasiurus to Aeorestes
+Lasiurus_villosissimus,Aeorestes_villosissimus,move from Lasiurus to Aeorestes
+Dasypterus_ega,Dasypterus_ega,move from Lasiurus to Dasypterus
+Dasypterus_insularis,Dasypterus_insularis,move from Lasiurus to Dasypterus
+Dasypterus_intermedius,Dasypterus_intermedius,move from Lasiurus to Dasypterus
+Dasypterus_xanthinus,Dasypterus_xanthinus,move from Lasiurus to Dasypterus
+Myotis_lucifugus,Myotis_alascensis,split from Myotis lucifugus
+Myotis_lucifugus,Myotis_carissima,split from Myotis lucifugus
+Myotis_lucifugus,Myotis_pernox,split from Myotis lucifugus
+Myotis_lucifugus,Myotis_relictus,split from Myotis lucifugus

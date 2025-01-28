@@ -1,0 +1,17 @@
+﻿File,Columns,Explanation
+names_per_year_summary,,Summary of the available name descriptions per year used to build Figure 1 of the MDD2 manuscript based on the data in the MDD2 synonym dataset.
+,year,"the year being summarized in a given row, ranging from 1758 to 2024"
+,valid_species_totals,the number of valid available species on the MDD2 listing described each year based on their authority year
+,available_name_totals,the number of available species-rank names (either valid or synonymous on the MDD2 listing) described each year based on their authority year
+,species_per_year,the number of available names described at the species rank (either valid or synonymous on the MDD2 listing) described each year
+,percent_species_per_year,the percent of total available names described at the species rank (either valid or synonymous on the MDD2 listing) described each year
+,smoothed_10_year_percent_species,the 10-year running mean of the percent of total available names described at the species rank (either valid or synonymous on the MDD2 listing) described each year
+,lumps_per_year,the number of available names described at the species rank (either valid or synonymous on the MDD2 listing) that were lumped since their description described in each year
+,percent_lumps_per_year,the percent of total available names described at the species rank (either valid or synonymous on the MDD2 listing) that were lumped since their description described in each year
+,smoothed_10_year_percent_lumps,the 10-year running mean of the percent of total available names described at the species rank (either valid or synonymous on the MDD2 listing) that were lumped since their description described in each year
+,splits_per_year,the number of available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) that were split into distinct species since their description described in each year
+,percent_splits_per_year,the percent of total available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) that were split into distinct species since their description described in each year
+,smoothed_10_year_percent_splits,the 10-year running mean of the percent of total available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) that were split into distinct species since their description described in each year
+,subspecies_per_year,the number of available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) described each year
+,percent_subspecies_per_year,the percent of total available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) described each year
+,smoothed_10_year_percent_subspecies,the 10-year running mean of the percent of total available names described at the subspecies rank (either valid or synonymous on the MDD2 listing) described each year

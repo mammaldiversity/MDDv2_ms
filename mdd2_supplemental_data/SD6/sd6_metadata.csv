@@ -1,0 +1,31 @@
+﻿File,Columns,Explanation
+taxonomy_data_summary,,"Summary of total taxonomic and nomenclatural data on MDD2 per taxonomic grouping, including all MDD2 families and orders."
+,rank,"the taxonomic rank (family, order) summarized in that row; the term 'global' is included for the row dedicated to global totals of each column "
+,order,either the order or the order of the family being summarized in that row; incertae sedis is listed if the order is incertae sedis for counted available names on the MDD2 synonym list
+,family,the family being summarized in that row (listed as NA if the row rank is 'order'); incertae sedis is listed if the family is incertae sedis for counted available names on the MDD2 synonym list
+,available_names,"the total available names (including preoccupied, replacement, and suppressed names) in each order and family in MDD2"
+,species_count,total species recognized on the MDD2 per family or order
+,living_species,total extant species (total - extinct species) recognized on the MDD2 per family or order
+,wild_species,total wild species (total - domestic species) recognized on the MDD2 per family or order
+,extinct_species,total extinct species recognized on the MDD2 per family or order
+,domestic_species,total domestic species recognized on the MDD2 per family or order
+,genera,total genera recognized on the MDD2 per family or order
+,living_genera,total extant genera (total - extinct genera) recognized on the MDD2 per family or order
+,extinct_genera,total extinct genera recognized on the MDD2 per family or order
+,families,total families recognized on the MDD2 per order (NA if the row rank is 'family'
+,living_families,total extant families (total - extinct families) recognized on the MDD2 per order (NA if the row rank is 'family'
+,extinct_families,total extinct families recognized on the MDD2 per order (NA if the row rank is 'family'
+,new_since_MSW3,total new species (both split and de novo species) recognized since MSW3 in MDD2 
+,new_descriptions_since_MSW3,total newly described species (only de novo species) recognized since MSW3 in MDD2 
+,split_since_MSW3,total split species recognized since MSW3 in MDD2 
+,IUCN_LC_species,total MDD2 species classified as Least Concern on the IUCN Red List version 2024-1 per order and family
+,IUCN_NT_species,total MDD2 species classified as Near Threatened on the IUCN Red List version 2024-1 per order and family
+,IUCN_VU_species,total MDD2 species classified as Vulnerable on the IUCN Red List version 2024-1 per order and family
+,IUCN_EN_species,total MDD2 species classified as Endangered on the IUCN Red List version 2024-1 per order and family
+,IUCN_CR_species,total MDD2 species classified as Critically Endangered on the IUCN Red List version 2024-1 per order and family
+,IUCN_EW_species,total MDD2 species classified as Extinct in the Wild on the IUCN Red List version 2024-1 per order and family
+,IUCN_EX_species,total MDD2 species classified as Extinct on the IUCN Red List version 2024-1 per order and family
+,IUCN_DD_species,total MDD2 species classified as Data Deficient on the IUCN Red List version 2024-1 per order and family
+,IUCN_NE_species,total MDD2 species classified Not Evaluated on the IUCN Red List version 2024-1 per order and family
+,IUCN_threatened_total,"total MDD2 species classified as either Vulnerable, Endangered, Critically Endangered, or Extinct in the Wild on the IUCN Red List version 2024-1 per order and family"
+,IUCN_understudied_total,total MDD2 species classified as either Data Deficient or Not Evaluated on the IUCN Red List version 2024-1 per order and family
