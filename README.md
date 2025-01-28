@@ -30,3 +30,16 @@
 #### mdd2_supplemental_data
 
 - SD1 to SD11 from the _Journal of Mammalogy_ paper
+
+	- SD1: MDD2 species list, plus associated metadata, in a zipped folder.
+	- SD2: MDD2 synonym list, plus associated metadata, in a zipped folder.
+	- SD3: All MDD version species lists, plus associated metadata, in a zipped folder.
+	- SD4: All MDD ‘diff’ files, plus associated metadata, in a zipped folder.
+	- SD5: ‘Diff’ file specifically between MDD1 and MDD2, plus associated metadata, in a zipped folder.
+	- SD6: Summary of nomenclatural data and species totals by taxonomic group, plus associated metadata, in a zipped folder.
+	- SD7: Summary of nomenclatural data and species totals by geographic region, plus associated metadata, in a zipped folder.
+	- SD8: Summary of nomenclatural data totals by nomenclatural and validity status, plus associated metadata, in a zipped folder.
+	- SD9: Total available and valid names described per year since 1758 and summary of 10-year running means used to create Figure 1, plus associated metadata, in a zipped folder.
+	- SD10: Occurrence matrix for species country and offshore territory distribution data in a zipped folder.
+	- SD11: Per country usage of the MDD website at mammaldiversity.org in a zipped folder.
+
