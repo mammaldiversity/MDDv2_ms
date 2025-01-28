@@ -1,6 +1,7 @@
 # MDDv2_ms
-## Codebase for J Mammalogy ms documenting changes to the Mammal Diversity Database from v1.0 to v2.0
+## Codebase for _Journal of Mammalogy_ ms documenting changes to the Mammal Diversity Database from v1.0 to v2.0
 
+- Citation: Burgin, C. J., Zijlstra, J. S., Becker, M. C., Handika, H., Alston, J., Widness, J., Liphardt, S. W., Huckaby, D. G., & Upham, N. S. (2025). How many mammal species are there now? Updates and trends in taxonomic, nomenclatural, and geographic knowledge. _Journal of Mammalogy_.
 - Live site: https://mammaldiversity.org/
 - Versioning: https://doi.org/10.5281/zenodo.5945626
 
